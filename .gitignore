@@ -1,0 +1,11 @@
+# Obsidian
+.obsidian/workspace*
+.obsidian/cache/
+
+# Python
+__pycache__/
+*.pyc
+
+# Temp
+.DS_Store
+*.tmp
