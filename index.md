@@ -1,6 +1,6 @@
 # Wiki Index — Content Catalog
 
-**Last Updated:** 2026-04-12 14:15
+**Last Updated:** 2026-04-13
 
 ---
 
@@ -16,15 +16,21 @@
 - [[Transformer]] — Neural network architecture based entirely on attention mechanisms
 - [[Self-Attention]] — Mechanism where input sequence attends to itself
 - [[Multi-Head Attention]] — Parallel attention operations with different transformations
+- [[Attention Mechanism]] — QKV tabanlı dikkat mekanizması, modern LLM'lerin temeli
+- [[BERT]] — Google'ın çift yönlü encoder modeli
+- [[GPT]] — OpenAI'ın decoder-only dil modeli serisi
 - [[agentic-workflows]] — Step-by-step and self-correcting iterative design principle for AI agents
+- [[CrewAI]] — Role-based multi-agent framework
+- [[LangGraph]] — Graf tabanlı ajan iş akışı framework'ü
+- [[AutoGen]] — Microsoft'un konuşma tabanlı multi-agent framework'ü
 
 ---
 
 ## 📊 Stats
 
-- Total Pages: 8
+- Total Pages: 17
 - Total Sources: 2
-- Last Ingest: 2026-04-12 14:15 (dr-ryan-ahmed-ai-agent-roadmap.md)
+- Last Ingest: 2026-04-13 (attention-mechanism.md tam ingest — 8 yeni sayfa)
 
 ## Gunluk
 
