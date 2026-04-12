@@ -614,3 +614,8 @@ python3 /root/ceo_v2/main.py
 ## [2026-04-12 14:20] ingest | Dr. Ryan Ahmed AI Agent Roadmap & 2026 Learning Strategy
 
 ## [2026-04-13 00:00] index | Gunluk + Kararlar index guncellendi
+
+## [2026-04-13] ingest | attention-mechanism.md + eksik sayfa tamamlama
+- Oluşturulan sayfalar: Attention Mechanism, Multi-Head Attention (alias), BERT, GPT, CrewAI, LangGraph, AutoGen, Agentic-Workflows (alias)
+- Tüm bitik linkler kapatıldı
+- index.md güncellendi (17 sayfa)
