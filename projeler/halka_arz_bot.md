@@ -46,3 +46,5 @@ Halka arz yatırımcısının tüm araştırma sürecini otomatize eden, 6 modü
 - **analiz_ajan** (agents/analiz.py)
   Rol: İzahname PDF indir, bilanço parse et, finansal oranları hesapla, güç skoru üret
   Görev
+
+← [[CEO_DASHBOARD]] | [[PROJELER_HUB]]

@@ -58,3 +58,5 @@ Günlük kullanım için kişisel AI kilo takip asistanı. Yemek kaydı, kilo ta
 - [x] `core/sheets.py` — tüm CRUD fonksiyonları yazıldı (OAuth ile)
 - [x] `.env` oluşturuldu (TELEGRAM_BOT_TOKEN + SPREADSHEET_ID)
 - [x] Google Sheets bağlantısı test edildi — OK (`
+
+← [[CEO_DASHBOARD]] | [[PROJELER_HUB]]

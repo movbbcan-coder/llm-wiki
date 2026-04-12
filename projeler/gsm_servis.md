@@ -35,3 +35,5 @@ ROL: GSM Expert Servis Merkezi Yapay Zeka Genel Müdürü, Operasyon Yöneticisi
 • ​Admin: Analitik, stratejik, kâr odaklı.
 ​🛠 KANAL 1: USTA & OPERASYON
 ​İŞ DAĞITIMI: Yeni iş geldiğinde Usta iş yükü, SLA skoru ve Hata
+
+← [[CEO_DASHBOARD]] | [[PROJELER_HUB]]

@@ -141,3 +141,5 @@ N proje için N subprocess = yavaş + CPU spike.
 - Token: config.py → TELEGRAM_TOKEN
 - API: config.py → OPENROUTER_API_KEY (sk-or-v1-7382ff...)
 - Authorized: AUTHORIZED_USER_ID=5580093599
+
+← [[CEO_DASHBOARD]] | [[PROJELER_HUB]]

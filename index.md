@@ -1,5 +1,7 @@
 # Wiki Index — Content Catalog
 
+> Giriş noktası: [[CEO_DASHBOARD]]
+
 **Last Updated:** 2026-04-13
 
 ---
@@ -23,6 +25,15 @@
 - [[CrewAI]] — Role-based multi-agent framework
 - [[LangGraph]] — Graf tabanlı ajan iş akışı framework'ü
 - [[AutoGen]] — Microsoft'un konuşma tabanlı multi-agent framework'ü
+
+---
+
+## 🗂️ Hub'lar
+
+- [[CEO_DASHBOARD]] — Merkez kontrol
+- [[PROJELER_HUB]] — Tüm projeler
+- [[TECH_HUB]] — Teknik bilgi tabanı
+- [[KARARLAR_HUB]] — Tüm kararlar
 
 ---
 

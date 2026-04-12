@@ -45,3 +45,5 @@ Instagram Reels linkini veya görselini paylaş → bot içeriği analiz etsin �
   - [ ] Uygulama takibi + hatırlatma
 
 ## 📍 NEREDE KALD
+
+← [[CEO_DASHBOARD]] | [[PROJELER_HUB]]
