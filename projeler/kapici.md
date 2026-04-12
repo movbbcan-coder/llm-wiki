@@ -9,3 +9,5 @@
 ## Tahta
 
 _Tahta oluşturulmamış._
+
+← [[CEO_DASHBOARD]] | [[PROJELER_HUB]]
