@@ -4,7 +4,7 @@
 - **Durum:** aktif | Domain: bireysel
 - **Bekleyen görev:** 12
 - **Ajanlar:** yok
-- **Son güncelleme:** 2026-04-10 07:00
+- **Son güncelleme:** 2026-04-11 07:00
 
 ## Tahta
 

@@ -4,7 +4,7 @@
 - **Durum:** tahta yok
 - **Bekleyen görev:** 3
 - **Ajanlar:** base, satis, musteri_agent, admin, usta, usta_agent, ai_router, admin_agent, router
-- **Son güncelleme:** 2026-04-10 07:00
+- **Son güncelleme:** 2026-04-11 07:00
 
 ## Tahta
 

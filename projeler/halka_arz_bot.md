@@ -4,7 +4,7 @@
 - **Durum:** aktif
 - **Bekleyen görev:** 1
 - **Ajanlar:** bildirim, cikis_stratejisi, kap_finansal, lot_tahmini, analiz, sheets_agent, tarama, simulasyon
-- **Son güncelleme:** 2026-04-10 07:00
+- **Son güncelleme:** 2026-04-11 07:00
 
 ## Tahta
 

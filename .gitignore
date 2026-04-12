@@ -1,11 +1,5 @@
-# Obsidian
-.obsidian/workspace*
-.obsidian/cache/
-
-# Python
-__pycache__/
-*.pyc
-
-# Temp
-.DS_Store
-*.tmp
+# Devasa log dosyaları — gürültü, git'e girmesin
+gunluk/2026-*.md
+kararlar/2026-*.md
+gunluk/haftalik/
+gunluk/ozet/
