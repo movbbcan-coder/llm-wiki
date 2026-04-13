@@ -162,6 +162,9 @@
   },
   "left-ribbon": {
     "hiddenItems": {
+      "zk-prefixer:Создать заметку с уникальным идентификатором": false,
+      "random-note:Открыть случайную заметку": false,
+      "publish:Публикация изменений": false,
       "switcher:Меню быстрого перехода": false,
       "graph:Граф": false,
       "canvas:Создать новый холст": false,
