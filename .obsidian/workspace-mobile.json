@@ -146,6 +146,16 @@
           "icon": "lucide-list",
           "title": "Структура"
         }
+      },
+      {
+        "id": "b87fba2f1080f7fc",
+        "type": "leaf",
+        "state": {
+          "type": "footnotes",
+          "state": {},
+          "icon": "lucide-file-signature",
+          "title": "Сноски"
+        }
       }
     ],
     "currentTab": 0
@@ -158,10 +168,13 @@
       "daily-notes:Сегодняшняя заметка": false,
       "templates:Вставить шаблон": false,
       "command-palette:Открыть палитру команд": false,
-      "bases:Создать новую базу": false
+      "bases:Создать новую базу": false,
+      "audio-recorder:Начать/остановить запись": false,
+      "markdown-importer:Импорт Markdown-файлов": false,
+      "workspaces:Пространства": false
     }
   },
-  "active": "eba89925d5f47243",
+  "active": "e9d51ca72dd82048",
   "lastOpenFiles": [
     "kararlar/2026-04-13.md",
     "vps-test-sync.md",
