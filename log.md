@@ -625,3 +625,16 @@ python3 /root/ceo_v2/main.py
 - index.md güncellendi (Projeler bölümü eklendi, toplam sayfa 18)
 - Proje skoru 5.5 → 8.0 (5 kritik fix: typo, state persist, banka takip, mesaj handler, auto-start)
 
+
+## [2026-04-13 20:00] project | veles_analizi projesi başlatıldı
+- Klasör: proje_ismi_veles_analiz_m → veles_analizi
+- SPEC.md yazıldı (tam teknik spec)
+- TAHTA.md revize edildi (yeni başarı skoru v2)
+- config.py, storage.py, collector.py tamamlandı
+- Başarı skoru v2: Win Rate çıkarıldı, Fee Efficiency + Market Adaptability eklendi
+
+## [2026-04-13 20:30] build | veles_analizi — Analiz motoru tamamlandı
+- matcher.py: FIFO round-trip eşleştirme
+- calculator.py: Sharpe, Sortino, Drawdown, Fee Ratio, Consistency, Market Adaptability
+- scorer.py: 6 bileşenli başarı skoru (v2), 0-100 arası, Telegram formatı
+- Kalan: reporter.py + alerter.py + main.py
