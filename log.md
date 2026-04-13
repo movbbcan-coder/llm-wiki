@@ -619,3 +619,9 @@ python3 /root/ceo_v2/main.py
 - Oluşturulan sayfalar: Attention Mechanism, Multi-Head Attention (alias), BERT, GPT, CrewAI, LangGraph, AutoGen, Agentic-Workflows (alias)
 - Tüm bitik linkler kapatıldı
 - index.md güncellendi (17 sayfa)
+
+## [2026-04-13 18:00] update | bybit_p2p proje sayfası oluşturuldu
+- vault/projeler/bybit_p2p.md oluşturuldu (mimari, özellikler, testler)
+- index.md güncellendi (Projeler bölümü eklendi, toplam sayfa 18)
+- Proje skoru 5.5 → 8.0 (5 kritik fix: typo, state persist, banka takip, mesaj handler, auto-start)
+

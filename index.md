@@ -28,6 +28,14 @@
 
 ---
 
+## 🚀 Projeler
+
+- [[bybit_p2p]] — Bybit P2P USDT satış otomasyon botu (bireysel, production)
+- [[kilo_takip]] — Kişisel kilo takip AI asistanı (bireysel)
+- [[gsm_servis]] — GSM servis yönetim botu (ticari)
+
+---
+
 ## 🗂️ Hub'lar
 
 - [[CEO_DASHBOARD]] — Merkez kontrol
@@ -39,9 +47,10 @@
 
 ## 📊 Stats
 
-- Total Pages: 17
+- Total Pages: 18
 - Total Sources: 2
 - Last Ingest: 2026-04-13 (attention-mechanism.md tam ingest — 8 yeni sayfa)
+- Last Update: 2026-04-13 (bybit_p2p proje sayfası eklendi)
 
 ## Gunluk
 
