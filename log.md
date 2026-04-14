@@ -638,3 +638,9 @@ python3 /root/ceo_v2/main.py
 - calculator.py: Sharpe, Sortino, Drawdown, Fee Ratio, Consistency, Market Adaptability
 - scorer.py: 6 bileşenli başarı skoru (v2), 0-100 arası, Telegram formatı
 - Kalan: reporter.py + alerter.py + main.py
+
+## [2026-04-14 10:30] fix | bybit_p2p token tüketimi optimize edildi
+- agent.py: len<100 bulk dosya yükleme kaldırıldı (kök neden: kısa her sorgu bot.py'yi tam yüklüyordu)
+- bot.py 900→1642 satır büyümesi ile her mesaj ~15,500 token tüketiyordu (%93 artış)
+- Fix: sadece açıkça adı geçen dosyalar yükleniyor + 4000 char bütçe + büyük dosya kırpma
+- Tahmini token tasarrufu: mesaj başına ~8,000 token (~%50 azalma)
