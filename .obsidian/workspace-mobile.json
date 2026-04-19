@@ -45,7 +45,7 @@
         "state": {
           "type": "search",
           "state": {
-            "query": "tag:#ceo",
+            "query": "",
             "matchingCase": false,
             "explainSearch": false,
             "collapseAll": false,
@@ -96,7 +96,7 @@
         }
       }
     ],
-    "currentTab": 1
+    "currentTab": 0
   },
   "right": {
     "id": "c863dec4dec26731",
@@ -179,6 +179,7 @@
   },
   "active": "eba89925d5f47243",
   "lastOpenFiles": [
+    "gorevler/sistem-iyilestirme.md",
     "PROJELER_HUB.md",
     "index.md",
     "kararlar/2026-04-13.md",
