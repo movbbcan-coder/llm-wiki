@@ -45,7 +45,7 @@
         "state": {
           "type": "search",
           "state": {
-            "query": "",
+            "query": "tag:#ceo",
             "matchingCase": false,
             "explainSearch": false,
             "collapseAll": false,
@@ -96,7 +96,7 @@
         }
       }
     ],
-    "currentTab": 0
+    "currentTab": 1
   },
   "right": {
     "id": "c863dec4dec26731",
@@ -179,11 +179,11 @@
   },
   "active": "eba89925d5f47243",
   "lastOpenFiles": [
+    "index.md",
     "kararlar/2026-04-13.md",
     "vps-test-sync.md",
     "TECH_HUB.md",
     "KARARLAR_HUB.md",
-    "index.md",
     "CEO_DASHBOARD.md"
   ]
 }
