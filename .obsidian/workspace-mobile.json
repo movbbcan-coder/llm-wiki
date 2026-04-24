@@ -112,12 +112,13 @@
         "state": {
           "type": "backlink",
           "state": {
+            "file": "CEO_DASHBOARD.md",
             "collapseAll": false,
             "extraContext": false,
             "sortOrder": "alphabetical",
             "showSearch": true,
             "searchQuery": "",
-            "backlinkCollapsed": false,
+            "backlinkCollapsed": true,
             "unlinkedCollapsed": true
           },
           "icon": "links-coming-in",
@@ -143,6 +144,7 @@
         "state": {
           "type": "outline",
           "state": {
+            "file": "CEO_DASHBOARD.md",
             "followCursor": false,
             "showSearch": false,
             "searchQuery": ""
@@ -162,7 +164,7 @@
         }
       }
     ],
-    "currentTab": 0
+    "currentTab": 2
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -181,7 +183,7 @@
       "workspaces:Пространства": false
     }
   },
-  "active": "e9d51ca72dd82048",
+  "active": "a9d5887b638358fb",
   "lastOpenFiles": [
     "gunluk/2026-04-10.md",
     "gorevler/sistem-iyilestirme.md",
