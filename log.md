@@ -648,3 +648,5 @@ python3 /root/ceo_v2/main.py
 2026-05-06 10:31 — [SubAgent] unknown exit=0
 2026-05-06 10:33 — [SubAgent] unknown exit=0
 2026-05-06 10:42 — [SubAgent] unknown exit=0
+2026-05-06 10:49 — [PreCompact] Context sıkıştırıldı
+2026-05-06 10:51 — [SubAgent] unknown exit=0
