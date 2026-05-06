@@ -644,3 +644,4 @@ python3 /root/ceo_v2/main.py
 - bot.py 900→1642 satır büyümesi ile her mesaj ~15,500 token tüketiyordu (%93 artış)
 - Fix: sadece açıkça adı geçen dosyalar yükleniyor + 4000 char bütçe + büyük dosya kırpma
 - Tahmini token tasarrufu: mesaj başına ~8,000 token (~%50 azalma)
+2026-05-06 10:28 — [SubAgent] unknown exit=0
