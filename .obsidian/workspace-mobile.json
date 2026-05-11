@@ -4,17 +4,17 @@
     "type": "split",
     "children": [
       {
-        "id": "8d4bac32016bee64",
+        "id": "94dcdf6dc90a5d74",
         "type": "tabs",
         "children": [
           {
-            "id": "eba89925d5f47243",
+            "id": "29c72abd52087001",
             "type": "leaf",
             "state": {
-              "type": "graph",
+              "type": "empty",
               "state": {},
-              "icon": "lucide-git-fork",
-              "title": "Граф"
+              "icon": "lucide-file",
+              "title": "Новая вкладка"
             }
           }
         ]
@@ -177,7 +177,7 @@
       "workspaces:Пространства": false
     }
   },
-  "active": "eba89925d5f47243",
+  "active": "29c72abd52087001",
   "lastOpenFiles": [
     "log.md",
     "CEO_DASHBOARD.md",
