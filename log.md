@@ -1379,3 +1379,5 @@ python3 /root/ceo_v2/main.py
 2026-05-30 11:48 — [SubAgent] unknown exit=0
 2026-05-31 11:42 — [SubAgent] unknown exit=0
 2026-05-31 11:45 — [SubAgent] unknown exit=0
+2026-05-31 11:48 — [SubAgent] unknown exit=0
+2026-05-31 11:50 — [SubAgent] unknown exit=0
