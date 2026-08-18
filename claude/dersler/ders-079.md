@@ -1,0 +1,13 @@
+---
+ureten: hafiza-yayinla
+tip: ders
+no: 79
+etiketler: [ders, rulebook]
+---
+
+# Ders 79 — Bir işletim sistemi özelliği dokümante edilmiş TÜM önkoşullar sağlandığı hâlde çalışmıyorsa, kovalamayı bırak — cihaz genelinde ölç ve OEM'in kendi karşılığını ara.
+
+**Bir işletim sistemi özelliği dokümante edilmiş TÜM önkoşullar sağlandığı hâlde çalışmıyorsa, kovalamayı bırak — cihaz genelinde ölç ve OEM'in kendi karşılığını ara.** ccoto FAZ 2'de Android Bubbles (baloncuk) için her önkoşul tek tek ölçüldü ve sağlandı: `config_supportsBubble=true` · `secure notification_bubbles=1` · `bubblePreference=1` (ayar ekranında "Tümü") · kanal `mAllowBubbles=1` · `shortcut … found valid? true` (kısayol `[DynIc-rStrLiv]`, conversation kategorisi, Person'lı) · MessagingStyle · aktivite öznitelikleri **paketlenmiş APK'dan** (`aapt2 dump xmltree`: allowEmbedded/documentLaunchMode=2/resizeableActivity). Sistem yine `mAllowBubble=false` dedi. Dört hipotez ölçülerek elendi (ongoing bayrağı · vektör vs bitmap simge — aynı derlemede iki varyant · "Samsung kaldırmış" (YANLIŞ: SystemUI'da BubbleCoordinator var, `config_supportsBubble=true`) · eski vs kısayol tabanlı BubbleMetadata kurucusu). **Kritik ölçüm cihaz genelinde olandı: 1442 bildirim kanalından yalnız 1'inde `mConversationId` doluydu ve hiçbir uygulamada `isBubble=true` yoktu** — yani OEM o yığını fiilen kullanmıyor. Çözüm kovalamakta değil, OEM'in kendi mekanizmasındaydı: Samsung "Açılır pencere görünümü için kaydırma" (`Settings$SwipeForPopupViewSettingsActivity`) zaten AÇIKtı ve **sıfır ek kodla** istenen davranışı verdi (uygulama her şeyin üstünde yüzen pencere; `input swipe 8 8 620 780` ile ölçüldü). Kural: (a) "her önkoşul sağlandı ama olmuyor" hâlinde **kendi kodundan çıkıp cihaz genelini ölç** — tek bir uygulamanın da başaramadığı şey senin hatan değildir; (b) ürünün vaadi bir API'ye değil DAVRANIŞA bağlıdır, aynı davranışı veren OEM yolu varsa o yol ürünün yoludur; (c) kaybedilen zamanın telafisi: doğru yazılmış kodu SİLME, izin verildiği gün çalışır. YAN DERS (aynı gün, #38 ailesi): cihaz kapısı "uygulama açıldı mı" diye kurulmuşken tek bir aktiviteyi (`AnaEkran`) şart koşuyordu; açık kalan ikinci ekran (`SohbetEkrani`) yeniden canlanınca uygulama ön planda olmasına rağmen kapı KIRMIZI verdi — **kapının kapsamı öncülüyle aynı olmalı**, yoksa yanlış kırmızı üretir ve zamanla kapıya güven kalmaz. İKİNCİ YAN DERS: Kotlin Gradle DSL'de `java` adı Gradle'ın java eklentisine bağlanır ve `java.time`/`java.util` paketlerini gölgeler ("Unresolved reference: time/util") → dosya başında açık `import` şart (aynı tuzağa iki kez düşüldü).
+
+---
+*Kaynak: ccoto FAZ 2 baloncuk 2026-08-13 → bulgular/f22-kanit.md + yuzen-pencere-20260813.png + apk/kur_ve_dogrula.sh kapsam düzeltmesi*
