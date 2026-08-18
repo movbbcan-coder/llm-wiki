@@ -94,3 +94,15 @@ Karar: hook'ları yedekleyip kaldırmak mı, böyle bırakmak mı? Kullanıcıya
 ### 4. 🟢 Kapanan: Termux scroll sorunu
 Parmakla kaydırma alt-ekranda ok tuşuna çevriliyordu (prompt geçmişi geliyordu).
 Çözüm: `~/.termux/termux.properties` → extra-keys'e PGUP/PGDN. Ders: rulebook #78.
+
+## 🔴 Obsidian kasası — GitHub jetonu geçersiz (2026-08-18)
+Kasa (`/root/obsidian/vault` → `movbbcan-coder/llm-wiki`) **5 Haziran'dan beri** itilmiyordu;
+sebep: `.git/config` remote URL'indeki jeton artık kabul edilmiyor ("could not read Password").
+Ayrıca o jeton AÇIK METİNDİ — her `git remote -v` çıktısında sızıyordu; **iptal edilmeli**.
+
+Yapıldı: remote URL temizlendi (jeton yok), `credential.helper store --file=/root/.git-kimlik`
+(chmod 600) kuruldu, `hafiza-yayinla` yazıcı + 4 saatte bir cron kuruldu. 530 commit itilmeyi
+bekliyor.
+
+**Kullanıcıdan gereken:** GitHub'da eski jetonu İPTAL et, yeni bir tane üret (repo yazma yetkisi),
+sonra tek komut: `hafiza-token <yeni_token>` → jetonu güvenli dosyaya yazar ve push'u dener.

@@ -1,6 +1,6 @@
 <!-- ÜRETİLMİŞ: hafiza-yayinla — elle düzenleme, sonraki koşumda silinir -->
 
-# Dersler (90)
+# Dersler (91)
 
 En yeniden eskiye.
 
@@ -9,6 +9,7 @@ En yeniden eskiye.
 - [[ders-086|#86 Bir bayrağı açmak YETENEĞİ açmaz — "açık" diyen ekran ile "yapabilir" olan sistem ayrı şeylerdir; ikisi senkron değilse kullanıcı sessiz başarısızlıkla baş başa kalır.]]
 - [[ders-085|#85 "Alfanümerik mi" ile "ASCII mi" AYRI sorulardır — homoglif (göze aynı görünen Yunan/Kiril harf) tüm imzayı sessizce bozar ve denetimin kendisi 'temiz' der.]]
 - [[ders-084|#84 Bir kanal sessizce ölebiliyorsa er ya da geç ölür ve haftalarca fark edilmez — her giriş kanalının "sustum" nöbetçisi olmalı.]]
+- [[ders-083|#83 Bir kayıt sistemi DOSYA ÜRETİYOR diye çalıştığını sanma — varlığı değil GERİ ÇAĞIRMAYI ölç.]]
 - [[ders-083|#83 Bir kaydı "yok" ilan etmeden önce ARADIĞIN ALANIN dolu geldiğini doğrula — sağlayıcı alanı maskeleyebilir ve yokluk kanıtı sahte çıkar.]]
 - [[ders-082|#82 Bir uyarının DOĞRU olması yetmez — TEKRARI da bilgi taşımalı; taşımıyorsa uyarı sistemi kendini yok eder.]]
 - [[ders-082|#82 Bir "durum ışığı"nı otomatikleştirmeden önce onu NEYİN yaktığını ölç — ve okuduğun alanın TAZE olduğunu ayrıca doğrula.]]
