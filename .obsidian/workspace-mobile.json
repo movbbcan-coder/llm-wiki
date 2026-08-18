@@ -11,10 +11,14 @@
             "id": "29c72abd52087001",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "gorevler/sistem-iyilestirme.md",
+                "mode": "source",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "Новая вкладка"
+              "title": "sistem-iyilestirme"
             }
           }
         ]
@@ -36,7 +40,7 @@
             "autoReveal": false
           },
           "icon": "lucide-folder-closed",
-          "title": "Файловый менеджер"
+          "title": "Dosya Gezgini"
         }
       },
       {
@@ -162,25 +166,25 @@
   },
   "left-ribbon": {
     "hiddenItems": {
-      "zk-prefixer:Создать заметку с уникальным идентификатором": false,
-      "random-note:Открыть случайную заметку": false,
-      "publish:Публикация изменений": false,
-      "switcher:Меню быстрого перехода": false,
-      "graph:Граф": false,
-      "canvas:Создать новый холст": false,
-      "daily-notes:Сегодняшняя заметка": false,
-      "templates:Вставить шаблон": false,
-      "command-palette:Открыть палитру команд": false,
-      "bases:Создать новую базу": false,
-      "audio-recorder:Начать/остановить запись": false,
-      "markdown-importer:Импорт Markdown-файлов": false,
-      "workspaces:Пространства": false
+      "switcher:Hızlı geçişi aç": false,
+      "graph:Grafik görünümünü aç": false,
+      "canvas:Yeni tuval oluşturun": false,
+      "daily-notes:Bugünün Notunu Aç": false,
+      "templates:Şablon ekle": false,
+      "command-palette:Komut paletini aç": false,
+      "markdown-importer:Markdown yükleyicisini aç": false,
+      "zk-prefixer:Yeni benzersiz not oluştur": false,
+      "random-note:Rastgele not oluştur": false,
+      "audio-recorder:Kaydı başlat/durdur": false,
+      "workspaces:Çalışma alanı düzenlerini yönetme": false,
+      "publish:Değişiklikleri yayınla": false,
+      "bases:Yeni taban oluştur": false
     }
   },
   "active": "29c72abd52087001",
   "lastOpenFiles": [
-    "log.md",
     "CEO_DASHBOARD.md",
+    "log.md",
     "gunluk/2026-04-10.md",
     "gorevler/sistem-iyilestirme.md",
     "PROJELER_HUB.md",
