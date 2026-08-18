@@ -4,7 +4,7 @@
 
 Bu klasör ÜRETİLMİŞTİR (`hafiza-yayinla`). Elle düzenleme.
 
-- [[00-dersler|Dersler (91)]] — kalıcı bilgi, "bir daha yapma"
+- [[00-dersler|Dersler (92)]] — kalıcı bilgi, "bir daha yapma"
 - [[acik-isler|Açık işler]] — sırada ne var
 - `projeler/` — yaşayan durum, nerede kaldık
 - `gunluk/` — o günün oturum özetleri

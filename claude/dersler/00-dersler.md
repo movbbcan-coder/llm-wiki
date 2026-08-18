@@ -1,9 +1,10 @@
 <!-- ÜRETİLMİŞ: hafiza-yayinla — elle düzenleme, sonraki koşumda silinir -->
 
-# Dersler (91)
+# Dersler (92)
 
 En yeniden eskiye.
 
+- [[ders-089|#89 Bir aracın hedef ADRESİ sabitse, dış dünya o adı değiştirdiği gün araç sessizce ölür — ve "başarısız" değil "eski cevap" döndürür.]]
 - [[ders-088|#88 Aynı bankanın PDF'i ile Excel'i damgayı FARKLI yerde saklar; biri parse edilmezse o kaynak "damgasız" girer ve ÇİFT SAYIM doğar.]]
 - [[ders-087|#87 #52'nin İKİNCİ kurbanı: kullanıcı ayarı bu kez MİRASLA değil FORMÜLLE ezildi — `max(ayar, formül)` deseni ayarı sessizce geçersiz kılar.]]
 - [[ders-086|#86 Bir bayrağı açmak YETENEĞİ açmaz — "açık" diyen ekran ile "yapabilir" olan sistem ayrı şeylerdir; ikisi senkron değilse kullanıcı sessiz başarısızlıkla baş başa kalır.]]
