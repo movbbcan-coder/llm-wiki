@@ -1,9 +1,11 @@
 <!-- ÜRETİLMİŞ: hafiza-yayinla — elle düzenleme, sonraki koşumda silinir -->
 
-# Dersler (92)
+# Dersler (94)
 
 En yeniden eskiye.
 
+- [[ders-091|#91 "Makro/servis AÇIK" ile "tetikleyici ÇALIŞIYOR" ayrı şeylerdir — ve ölçüm aracının YETKİSİ ölçümün parçasıdır.]]
+- [[ders-090|#90 Bir nöbetçi, ÇARESİ OLMAYAN arızaya müdahale etmeye devam ederse hem boşuna çalışır hem onarımı ENGELLER.]]
 - [[ders-089|#89 Bir aracın hedef ADRESİ sabitse, dış dünya o adı değiştirdiği gün araç sessizce ölür — ve "başarısız" değil "eski cevap" döndürür.]]
 - [[ders-088|#88 Aynı bankanın PDF'i ile Excel'i damgayı FARKLI yerde saklar; biri parse edilmezse o kaynak "damgasız" girer ve ÇİFT SAYIM doğar.]]
 - [[ders-087|#87 #52'nin İKİNCİ kurbanı: kullanıcı ayarı bu kez MİRASLA değil FORMÜLLE ezildi — `max(ayar, formül)` deseni ayarı sessizce geçersiz kılar.]]
