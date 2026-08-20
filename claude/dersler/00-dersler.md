@@ -1,9 +1,10 @@
 <!-- ÜRETİLMİŞ: hafiza-yayinla — elle düzenleme, sonraki koşumda silinir -->
 
-# Dersler (94)
+# Dersler (95)
 
 En yeniden eskiye.
 
+- [[ders-092|#92 Türetilebilir bir sınırı MUTASYONLA saklarsan, süreç yeniden başladığında sessizce kaybolur — ve "geri alma" onu SIFIRA düşürüp korumayı tamamen kapatabilir.]]
 - [[ders-091|#91 "Makro/servis AÇIK" ile "tetikleyici ÇALIŞIYOR" ayrı şeylerdir — ve ölçüm aracının YETKİSİ ölçümün parçasıdır.]]
 - [[ders-090|#90 Bir nöbetçi, ÇARESİ OLMAYAN arızaya müdahale etmeye devam ederse hem boşuna çalışır hem onarımı ENGELLER.]]
 - [[ders-089|#89 Bir aracın hedef ADRESİ sabitse, dış dünya o adı değiştirdiği gün araç sessizce ölür — ve "başarısız" değil "eski cevap" döndürür.]]
