@@ -1,6 +1,6 @@
 <!-- ÜRETİLMİŞ: hafiza-yayinla — elle düzenleme, sonraki koşumda silinir -->
 
-# Dersler (99)
+# Dersler (100)
 
 En yeniden eskiye.
 
@@ -8,6 +8,7 @@ En yeniden eskiye.
 - [[ders-094|#94 `set -o pipefail` + `grep -q` = SESSİZCE AÇILAN KAPI.]]
 - [[ders-093|#93 Tek kanala bakan koruma, o kanalın GÜRÜLTÜSÜNÜ arıza sanır — ve mesajı yanlış sebebi söylerse kullanıcı sistemi suçlar.]]
 - [[ders-092|#92 Türetilebilir bir sınırı MUTASYONLA saklarsan, süreç yeniden başladığında sessizce kaybolur — ve "geri alma" onu SIFIRA düşürüp korumayı tamamen kapatabilir.]]
+- [[ders-091|#91 Bir nöbetçinin ÖLÇÜM aracı, izlediği olayın tetikleyicisiyle aynıysa nöbetçi kendi kendini besler — ve düzeltmenin ilk turu bunu görmez.]]
 - [[ders-091|#91 "Makro/servis AÇIK" ile "tetikleyici ÇALIŞIYOR" ayrı şeylerdir — ve ölçüm aracının YETKİSİ ölçümün parçasıdır.]]
 - [[ders-090|#90 Bir nöbetçi, ÇARESİ OLMAYAN arızaya müdahale etmeye devam ederse hem boşuna çalışır hem onarımı ENGELLER.]]
 - [[ders-090|#90 Alıcının O AN yapabileceği bir şey yoksa uyarı gönderilmemeli — "durum" ile "olay" ayrı şeylerdir; aralığı seyreltmek gürültüyü çözmez.]]
