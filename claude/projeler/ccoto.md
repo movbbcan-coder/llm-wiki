@@ -21,7 +21,7 @@ bitti. Kalan tek iş aşağıda.
 | Köprü (VPS) | `/root/ccoto/backend/` → pm2: `ccoto-api` (127.0.0.1:8787) + `ccoto-bot` (@Ccotobot) |
 | Dışa açılım | `https://ccoto.movbbcan.com` (Cloudflare → nginx → 8787), sır başlığı `X-Ccoto-Anahtar` |
 | APK | `/root/ccoto/apk/` → derleme `apk/derle.sh` (uzak kutu tm-vpn-1), kurulum+kapı `apk/kur_ve_dogrula.sh` |
-| Kapılar | `bash tests/tumu.sh` → **86 test yeşil** + `test_adb_hedef.sh` (python + zincir + mutasyon) · `tests/test_f20_kapi.sh` (10 uç kapısı) |
+| Kapılar | `bash tests/tumu.sh` → **92 test yeşil** + `test_adb_hedef.sh` (python + zincir + mutasyon) · `tests/test_f20_kapi.sh` (10 uç kapısı) |
 | Kanıtlar | `bulgular/` (ekran görüntüleri + faz kanıt dosyaları) |
 
 **İlk 30 saniyede bilmen gerekenler (hepsi acı deneyimle öğrenildi):**
@@ -47,6 +47,14 @@ koşmadı ama **RC=0** döndü ve `telss` silinmemiş eski PNG'yi "şu anki ekra
 önce hem uzak hem yerel kopya siliniyor, `tel -c` gerçek seriyi yazıyor.
 Kapı: `tests/test_adb_hedef.sh` (9 kontrol, mutasyonla doğrulandı — sabit hedef geri konunca
 kırmızıya dönüyor). Rulebook #76'nın ikinci kurbanı.
+
+**⚠ 2026-08-21 — TÜNEL BİLDİRİMİ ARTIK TALEP ÜZERİNE (kullanıcının ikinci şikâyeti):**
+Boştaki kopukluk artık DUYURULMUYOR. Nöbetçi ölçmeye devam ediyor (`ariza-bosta`), haber
+yalnız bir araç tüneli kullanmaya çalışıp başarısız olunca gidiyor (`veri/tunel_talep`
+işareti; `tel_ssh` rc 255/124'te bırakır, nöbetçi görüp tüketir). Bildirime "Termux'u aç"
+ntfy tuşu eklendi (⚠ telefonda HENÜZ ÖLÇÜLMEDİ). Elle susturma hâlâ `veri/tunel_sessiz`.
+Kapı: `tests/test_tunel.py` 22 test (üç mutasyonla doğrulandı) + `tests/conftest.py`
+(canlı dosya kalkanı — daha önce YOKTU, rulebook #30). Ders: rulebook #90.
 
 **KALAN TEK İŞ (madde 5):** `otogor` "bu bir web sayfası" desin — ön plan tarayıcı ve öğe
 listesi sayfa düğümü içermiyorsa "koordinat moduna geç" uyarısı versin; ajan bunu bir dokunma

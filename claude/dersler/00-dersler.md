@@ -1,12 +1,16 @@
 <!-- ÜRETİLMİŞ: hafiza-yayinla — elle düzenleme, sonraki koşumda silinir -->
 
-# Dersler (95)
+# Dersler (99)
 
 En yeniden eskiye.
 
+- [[ders-095|#95 Sahiplik sorusunda "nerede duruyor" ile "kim kullanıyor" ayrı şeylerdir; ikisi de tek başına yanlış cevap verir.]]
+- [[ders-094|#94 `set -o pipefail` + `grep -q` = SESSİZCE AÇILAN KAPI.]]
+- [[ders-093|#93 Tek kanala bakan koruma, o kanalın GÜRÜLTÜSÜNÜ arıza sanır — ve mesajı yanlış sebebi söylerse kullanıcı sistemi suçlar.]]
 - [[ders-092|#92 Türetilebilir bir sınırı MUTASYONLA saklarsan, süreç yeniden başladığında sessizce kaybolur — ve "geri alma" onu SIFIRA düşürüp korumayı tamamen kapatabilir.]]
 - [[ders-091|#91 "Makro/servis AÇIK" ile "tetikleyici ÇALIŞIYOR" ayrı şeylerdir — ve ölçüm aracının YETKİSİ ölçümün parçasıdır.]]
 - [[ders-090|#90 Bir nöbetçi, ÇARESİ OLMAYAN arızaya müdahale etmeye devam ederse hem boşuna çalışır hem onarımı ENGELLER.]]
+- [[ders-090|#90 Alıcının O AN yapabileceği bir şey yoksa uyarı gönderilmemeli — "durum" ile "olay" ayrı şeylerdir; aralığı seyreltmek gürültüyü çözmez.]]
 - [[ders-089|#89 Bir aracın hedef ADRESİ sabitse, dış dünya o adı değiştirdiği gün araç sessizce ölür — ve "başarısız" değil "eski cevap" döndürür.]]
 - [[ders-088|#88 Aynı bankanın PDF'i ile Excel'i damgayı FARKLI yerde saklar; biri parse edilmezse o kaynak "damgasız" girer ve ÇİFT SAYIM doğar.]]
 - [[ders-087|#87 #52'nin İKİNCİ kurbanı: kullanıcı ayarı bu kez MİRASLA değil FORMÜLLE ezildi — `max(ayar, formül)` deseni ayarı sessizce geçersiz kılar.]]

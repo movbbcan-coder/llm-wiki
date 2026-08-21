@@ -1,0 +1,13 @@
+---
+ureten: hafiza-yayinla
+tip: ders
+no: 93
+etiketler: [ders, rulebook]
+---
+
+# Ders 93 — Tek kanala bakan koruma, o kanalın GÜRÜLTÜSÜNÜ arıza sanır — ve mesajı yanlış sebebi söylerse kullanıcı sistemi suçlar.
+
+**Tek kanala bakan koruma, o kanalın GÜRÜLTÜSÜNÜ arıza sanır — ve mesajı yanlış sebebi söylerse kullanıcı sistemi suçlar.** Ölü-adam anahtarı "İnternet kesildi (sinyal 197 sn) → TR pazarı kapatıldı" diyordu; kullanıcının interneti gayet açıktı ve haklı olarak "bu bir bug mu?" diye sordu. Ölçülen şey internet DEĞİL, telefon nabzıydı (MacroDroid → dakikada bir `GET /hb`) ve Android'in derin uyku pencerelerinde bu nabız 5-6 dk susabiliyor. Eşik VERİDEN ölçüldü (14 gün · 19.809 nabız · nginx access.log): medyan 60 sn · %99 = 69 sn · eşik 180 → **21 aşım**, 240 → 10, 300 → 8, 600 → 1 (tek gerçek kesinti, 3,8 sa). Yani eşiği büyütmek yanlış alarmı azaltır ama bitirmez; asıl çözüm **ikinci bağımsız kanıt**: telefonun ters SSH tüneli bu uyku molalarında ayakta kalıyor → nabız bayat AMA tünel canlıysa pazar KAPANMAZ; ikisi de ölüyse kapanır; tünel ÖLÇÜLEMEZSE eski davranış sürer (körlük korumayı kaldırmaz, #35). Ayrıca mesaj metni gerçeğe uyduruldu ("Telefon nabzı kesildi… interneti_niz açıksa_ nabız yolu kopmuştur"), çünkü **yanlış sebep sebepsizlikten kötüdür** (#86). **ÖLÇÜM DERSİ (aynı turda, utandırıcı):** ikinci kanıtı ilk yazımda `ss ... state established` ile ölçtüm ve tünel AYAKTAYKEN "ölü" dedi — ters tünelde ESTABLISHED bağlantı 2222'dedir, 8022 yalnız DİNLENİR; "dinleniyor mu" da yetmez, kopunca dinleyici bir süre açık kalır. Doğrusu 8022'ye bağlanıp telefonun **sshd banner'ını** okumak (0,15 sn). Kodu canlıya almadan önce ölçüp yakalandı (#76: aracın çıktısı değil ETKİ ölçülür). **İKİNCİ BUG, aynı vaka:** heartbeat 14:11'de pazarı kapattı (`hb_oto_kapatti=True`), 14:15'te `kapasite_senkron` pazarı açtı ama bayrağı temizlemedi — çünkü senkron `tr_ac()` yolundan geçmeyip `tl_aktif`'i DOĞRUDAN yazıyordu. 5,5 saat sonra pazar KOTA yüzünden kapanınca heartbeat onu "benim kapattığım" sanıp açtı, kapasite yokken 6 dk boş açık kaldı. Bir bayrağın anlattığı durum bittiğinde bayrak bırakılır — durumu KİM bitirirse bitirsin (#42/#45). YAN DERS: eşik değişince `hb_yas=200` yazan iki test kırıldı; sınanan davranış değişmemişti — **testler eşikten TÜRETMELİ** (`TIMEOUT + 20`), sabit sayı yazmamalı.
+
+---
+*Kaynak: heartbeat yanlış alarmı + bayrak sahipliği 2026-08-21 → heartbeat.TIMEOUT 300 + tunel_canli_mi/kapatmali_mi ikinci kanıt + metin · pazar.kapasite_senkron bayrak bırakma · test_heartbeat (23) + test_pazar_kapasite (26) · telefonda termux-wake-lock + ~/.termux/boot/00-p2p-nabiz.sh*
