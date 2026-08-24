@@ -1,11 +1,12 @@
 <!-- ÜRETİLMİŞ: hafiza-yayinla — elle düzenleme, sonraki koşumda silinir -->
 
-# Dersler (102)
+# Dersler (103)
 
 En yeniden eskiye.
 
 - [[ders-096|#96 Soğuma anahtarı DEĞİŞKEN içerikten türetilirse soğuma ölür — ve ölü soğuma "ayar var" diye görünmez kalır.]]
 - [[ders-095|#95 Sahiplik sorusunda "nerede duruyor" ile "kim kullanıyor" ayrı şeylerdir; ikisi de tek başına yanlış cevap verir.]]
+- [[ders-095|#95 "Gider bakiyeden düşmüyor" şikâyetinin altından ÇİFT SAYIM çıkabilir — eksilme oluyordur, fazlalık onu örtüyordur.]]
 - [[ders-094|#94 `set -o pipefail` + `grep -q` = SESSİZCE AÇILAN KAPI.]]
 - [[ders-094|#94 Her girdiyi "önce X mi?" diye deneyen bir boru hattı, X OLMAYANLAR için yanlış alarm üretir — ve o gürültü gerçek arızayı gizler.]]
 - [[ders-093|#93 Tek kanala bakan koruma, o kanalın GÜRÜLTÜSÜNÜ arıza sanır — ve mesajı yanlış sebebi söylerse kullanıcı sistemi suçlar.]]
