@@ -1,9 +1,11 @@
 <!-- ÜRETİLMİŞ: hafiza-yayinla — elle düzenleme, sonraki koşumda silinir -->
 
-# Dersler (104)
+# Dersler (106)
 
 En yeniden eskiye.
 
+- [[ders-098|#98 Oturumunu profile yazan bir tarayıcı, 7/24 çalışırken sessizce sekme biriktirir — ve o birikme makineyi devirir.]]
+- [[ders-097|#97 Tek bir denetimsiz süreç, tüm VPS'i devirebilir — ve devrilme "her şey çöktü" diye görünür.]]
 - [[ders-096|#96 Soğuma anahtarı DEĞİŞKEN içerikten türetilirse soğuma ölür — ve ölü soğuma "ayar var" diye görünmez kalır.]]
 - [[ders-096|#96 Bir düzeltmeyi uygularken "bu kavramı BAŞKA kim gösteriyor?" diye sor — yoksa ekranlar sessizce ayrışır ve kullanıcı sistemin tamamına güvenmeyi bırakır.]]
 - [[ders-095|#95 Sahiplik sorusunda "nerede duruyor" ile "kim kullanıyor" ayrı şeylerdir; ikisi de tek başına yanlış cevap verir.]]
