@@ -1,6 +1,6 @@
 <!-- ÜRETİLMİŞ: hafiza-yayinla — elle düzenleme, sonraki koşumda silinir -->
 
-# Dersler (107)
+# Dersler (109)
 
 En yeniden eskiye.
 
@@ -14,6 +14,8 @@ En yeniden eskiye.
 - [[ders-094|#94 `set -o pipefail` + `grep -q` = SESSİZCE AÇILAN KAPI.]]
 - [[ders-094|#94 Her girdiyi "önce X mi?" diye deneyen bir boru hattı, X OLMAYANLAR için yanlış alarm üretir — ve o gürültü gerçek arızayı gizler.]]
 - [[ders-093|#93 Tek kanala bakan koruma, o kanalın GÜRÜLTÜSÜNÜ arıza sanır — ve mesajı yanlış sebebi söylerse kullanıcı sistemi suçlar.]]
+- [[ders-093|#93 Canlı akış panelinde içeriği tazelemek kaydırma konumunu sıfırlıyorsa, kullanıcı HER ZAMAN en eski satırı görür ve akışı "geride kalmış" sanır — veri güncel, GÖRÜNEN yer eskidir.]]
+- [[ders-092|#92 Zaman aşımıyla kesilen SFTP aktarımı, boyutu DOĞRU ama içi delikli bir dosya bırakır — ve `adb install` ona "Success" der.]]
 - [[ders-092|#92 Türetilebilir bir sınırı MUTASYONLA saklarsan, süreç yeniden başladığında sessizce kaybolur — ve "geri alma" onu SIFIRA düşürüp korumayı tamamen kapatabilir.]]
 - [[ders-091|#91 Bir nöbetçinin ÖLÇÜM aracı, izlediği olayın tetikleyicisiyle aynıysa nöbetçi kendi kendini besler — ve düzeltmenin ilk turu bunu görmez.]]
 - [[ders-091|#91 "Makro/servis AÇIK" ile "tetikleyici ÇALIŞIYOR" ayrı şeylerdir — ve ölçüm aracının YETKİSİ ölçümün parçasıdır.]]

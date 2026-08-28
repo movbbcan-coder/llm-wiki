@@ -69,7 +69,9 @@ yazma veya ses atma yeri", (b) "süreci yönetirken yazdıklarını 5'te 1 ekran
 | Faz | Durum |
 |-----|-------|
 | FAZ 1 · köprü | ✅ `POST /gorev` + `GET /akis/{oturum}` · `backend/ccoto/akis.py` sadeleştirici · 11 test · toplam **105 python testi yeşil** |
-| FAZ 2 · panel | 🟡 kod yazıldı (`baloncuk/Panel.kt` + `YuzenBaloncuk` iki hâlli), derleme/cihaz doğrulaması bekliyor |
+| FAZ 2 · panel | ✅ cihazda ÇALIŞIYOR — baloncuğa dokun → ekranın 1/5'i pencere: CC-OTO başlığı, canlı akış (okunabilir), "görev yaz…" + gönder. Klavye açılıyor. Kanıt: ekran kaydı karesi (screencap overlay'i görmez, video yolu şart) |
+| FAZ 2b · kapatma | 🟡 üç yol eklendi (✕ kapat · geri tuşu · dışa dokunma) ama **cihazda doğrulanamadı**: adb'nin sentetik dokunmaları `FLAG_NOT_FOCUSABLE` overlay'e (baloncuk) ULAŞMIYOR — panel penceresine ulaşıyor (klavye açıldı). Baloncuk→panel geçişi yalnız gerçek parmakla test edilebilir. |
+| ~~FAZ 2b eski~~ | 🟡 ilk sürümde ✕ tetiklenmedi ve panel ekranda kilitli kaldı → kapatma ÜÇ yola çıkarıldı (✕ · geri tuşu · dışa dokunma) + akış artık metin değişmedikçe layout tetiklemiyor + `removeView` hatası yutulmuyor. Yeni APK cihazda doğrulanıyor |
 | FAZ 3 · cihaz | ⛔ **adb kapalı** — kullanıcı kablosuz hata ayıklama portunu verecek (`tel -t <port>`) |
 | FAZ 4 · ses | ⏳ şimdilik klavyenin mikrofon tuşu; SpeechRecognizer sonra |
 
