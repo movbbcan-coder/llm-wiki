@@ -1,9 +1,10 @@
 <!-- ÜRETİLMİŞ: hafiza-yayinla — elle düzenleme, sonraki koşumda silinir -->
 
-# Dersler (109)
+# Dersler (110)
 
 En yeniden eskiye.
 
+- [[ders-100|#100 "Yeni kayıt yok" ile "aynı belge tekrar geldi" ayrı hâllerdir — ikisini aynı sessizliğe koyarsan kullanıcı sistemin çalışmadığını sanır.]]
 - [[ders-099|#99 İki servis aynı tek-yazıcılı kaynağı paylaşırsa yarışırlar; kaybeden sonsuz restart'a girer ve kullanıcı ALARMDAN bunalır — ama asıl soru "yarışılan şey neye yarıyordu?"dur.]]
 - [[ders-098|#98 Oturumunu profile yazan bir tarayıcı, 7/24 çalışırken sessizce sekme biriktirir — ve o birikme makineyi devirir.]]
 - [[ders-097|#97 Tek bir denetimsiz süreç, tüm VPS'i devirebilir — ve devrilme "her şey çöktü" diye görünür.]]
