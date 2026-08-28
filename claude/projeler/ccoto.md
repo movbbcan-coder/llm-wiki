@@ -21,7 +21,7 @@ bitti. Kalan tek iş aşağıda.
 | Köprü (VPS) | `/root/ccoto/backend/` → pm2: `ccoto-api` (127.0.0.1:8787) + `ccoto-bot` (@Ccotobot) |
 | Dışa açılım | `https://ccoto.movbbcan.com` (Cloudflare → nginx → 8787), sır başlığı `X-Ccoto-Anahtar` |
 | APK | `/root/ccoto/apk/` → derleme `apk/derle.sh` (uzak kutu tm-vpn-1), kurulum+kapı `apk/kur_ve_dogrula.sh` |
-| Kapılar | `bash tests/tumu.sh` → **94 test yeşil** + `test_adb_hedef.sh` (python + zincir + mutasyon) · `tests/test_f20_kapi.sh` (10 uç kapısı) |
+| Kapılar | `bash tests/tumu.sh` → **105 test yeşil** + `test_adb_hedef.sh` (python + zincir + mutasyon) · `tests/test_f20_kapi.sh` (10 uç kapısı) |
 | Kanıtlar | `bulgular/` (ekran görüntüleri + faz kanıt dosyaları) |
 
 **İlk 30 saniyede bilmen gerekenler (hepsi acı deneyimle öğrenildi):**
@@ -61,6 +61,25 @@ katman: ölçüm çağrısı `TEL_TALEP_YOK=1` ile iz bırakmıyor (Python geçi
 Kapı ölçüm sayar (`olcum_sayisi == 0`), etikete güvenmez.
 Kapı: `tests/test_tunel.py` 24 test (altı mutasyonla doğrulandı) + `tests/conftest.py`
 (canlı dosya kalkanı — daha önce YOKTU, rulebook #30). Ders: rulebook #90.
+
+**🫧 BALONCUK PENCERESİ (2026-08-28) — daireden pencereye**
+Kullanıcının isteği: (a) "termux'a girip görev vermektense widget gibi bir alan olsun,
+yazma veya ses atma yeri", (b) "süreci yönetirken yazdıklarını 5'te 1 ekranda görebilsem".
+
+| Faz | Durum |
+|-----|-------|
+| FAZ 1 · köprü | ✅ `POST /gorev` + `GET /akis/{oturum}` · `backend/ccoto/akis.py` sadeleştirici · 11 test · toplam **105 python testi yeşil** |
+| FAZ 2 · panel | 🟡 kod yazıldı (`baloncuk/Panel.kt` + `YuzenBaloncuk` iki hâlli), derleme/cihaz doğrulaması bekliyor |
+| FAZ 3 · cihaz | ⛔ **adb kapalı** — kullanıcı kablosuz hata ayıklama portunu verecek (`tel -t <port>`) |
+| FAZ 4 · ses | ⏳ şimdilik klavyenin mikrofon tuşu; SpeechRecognizer sonra |
+
+**Ölçümle çıkan iki düzeltme (devir notu bunları yanlış biliyordu):**
+1. `POST /uyandir` **zaten** `gorev_baslat`'ı çağırıyordu — yani görev ucu vardı, adı
+   farklıydı. Devir notu uç ADINA bakıp gövdesine bakmamış, bu yüzden ikinci bir uç
+   yazıldı. Şimdi tek kapı: `/gorev` asıl, `/uyandir` ona delege (eski istemciler kırılmasın).
+2. `GET /ekran` akış için **kullanılamaz**: `capture-pane -S -N` "son N satır" değil
+   "N satır geçmiş + tüm ekran" demek — 18 satır istendi, 66 geldi, çoğu boş dolgu ve
+   durum çubuğuydu. Panel için `/akis` ayrı yazıldı (çerçeve atılır, içerik asla).
 
 **KALAN TEK İŞ (madde 5):** `otogor` "bu bir web sayfası" desin — ön plan tarayıcı ve öğe
 listesi sayfa düğümü içermiyorsa "koordinat moduna geç" uyarısı versin; ajan bunu bir dokunma
