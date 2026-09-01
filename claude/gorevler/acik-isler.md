@@ -106,3 +106,31 @@ bekliyor.
 
 **Kullanıcıdan gereken:** GitHub'da eski jetonu İPTAL et, yeni bir tane üret (repo yazma yetkisi),
 sonra tek komut: `hafiza-token <yeni_token>` → jetonu güvenli dosyaya yazar ve push'u dener.
+
+## 2026-08-28/09-01 · P2P + dubai_jobs oturumundan kalanlar
+
+- **İşCep kart harcaması kalıbı YOK** (p2p). İş Bankası "kör banka" sanılıyordu ama kart
+  harcaması bildirimi TUTAR + İŞYERİ taşıyor:
+  `"9451 numaralı kartınızla FLY.IO işyerinden 02.08.2026 tarih 8.88 USD tutarlı işleminiz…"`
+  Elde yalnız BAŞARISIZ işlem örneği var ("son kullanma tarihi hatalı"), başarılı hâlin metni
+  görülmedi. **Devam koşulu:** kullanıcı bir İşCep kart harcaması bildirimi gönderirse
+  `bank_patterns.json`'a kalıp eklenir → İş Bankası kart harcamaları bakiyeden düşer.
+
+- **dubai_jobs Telegram gönderimi kapalı** (`TG_SEND_ENABLED=false`, 2026-08-25). Sebep:
+  sender ile listener aynı Telethon oturum dosyası için yarışıyordu → listener 1585 restart.
+  Ölçüm: 21.257 denemede 4 başarı (%0,02; Telegram soğuk DM'i ve kanal yanıtını engelliyor).
+  **Devam koşulu:** bu yol gerçekten istenirse tek-sahip mimarisi gerekir — gönderim isteği
+  kuyruğa yazılır, oturumun sahibi (listener) gönderir. Bayrağı öylece açmak eski hatayı
+  geri getirir. Detay: rulebook #99.
+
+- **K8 körlüğü (p2p nöbetçi):** olay defteri BOŞKEN "kimliksiz satış" kontrolü sessizce
+  ölüyor (`_cift_yaz_ts=None` → hiçbir kayıt sayılmaz). Düzeltme denendi, mevcut sözleşmeyle
+  çakıştı ("legacy kayıt K8'i susturmalı") ve **geri alındı**. Canlıda defter dolu olduğu için
+  etkisi yok. **Devam koşulu:** defter sıfırlanır/göç edilirse önce bu kontrol ele alınmalı.
+
+- **Güvenlik: `/bildirim` anahtarı nginx erişim logunda düz metin** (URL sorgusunda gidiyor).
+  Log'u okuyabilen sahte "para geldi" bildirimi enjekte edebilir. Öneri: anahtarı header'a
+  taşı ya da nginx log formatında maskele.
+
+- **İki `claude-loop` oturumu açık** (pts/0 ve pts/2). Süreci öldürmek yetmez, döngü yeniden
+  açar. Ne iş yaptıkları bilinmiyor; kapatılacaksa önce `claude-loop` durdurulmalı.
