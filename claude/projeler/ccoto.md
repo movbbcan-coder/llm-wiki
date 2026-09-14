@@ -21,7 +21,7 @@ bitti. Kalan tek iş aşağıda.
 | Köprü (VPS) | `/root/ccoto/backend/` → pm2: `ccoto-api` (127.0.0.1:8787) + `ccoto-bot` (@Ccotobot) |
 | Dışa açılım | `https://ccoto.movbbcan.com` (Cloudflare → nginx → 8787), sır başlığı `X-Ccoto-Anahtar` |
 | APK | `/root/ccoto/apk/` → derleme `apk/derle.sh` (uzak kutu tm-vpn-1), kurulum+kapı `apk/kur_ve_dogrula.sh` |
-| Kapılar | `bash tests/tumu.sh` → **105 test yeşil** + `test_adb_hedef.sh` (python + zincir + mutasyon) · `tests/test_f20_kapi.sh` (10 uç kapısı) |
+| Kapılar | `bash tests/tumu.sh` → **107 test yeşil** + `test_adb_hedef.sh` (python + zincir + mutasyon) · `tests/test_f20_kapi.sh` (14 uç kapısı) |
 | Kanıtlar | `bulgular/` (ekran görüntüleri + faz kanıt dosyaları) |
 
 **İlk 30 saniyede bilmen gerekenler (hepsi acı deneyimle öğrenildi):**
@@ -68,7 +68,7 @@ yazma veya ses atma yeri", (b) "süreci yönetirken yazdıklarını 5'te 1 ekran
 
 | Faz | Durum |
 |-----|-------|
-| FAZ 1 · köprü | ✅ `POST /gorev` + `GET /akis/{oturum}` · `backend/ccoto/akis.py` sadeleştirici · 11 test · toplam **105 python testi yeşil** |
+| FAZ 1 · köprü | ✅ `POST /gorev` + `GET /akis/{oturum}` · `backend/ccoto/akis.py` sadeleştirici · 11 test · toplam **107 python testi yeşil** |
 | FAZ 2 · panel | ✅ cihazda ÇALIŞIYOR — baloncuğa dokun → ekranın 1/5'i pencere: CC-OTO başlığı, canlı akış (okunabilir), "görev yaz…" + gönder. Klavye açılıyor. Kanıt: ekran kaydı karesi (screencap overlay'i görmez, video yolu şart) |
 | FAZ 2b · kapatma | 🟡 üç yol eklendi (✕ kapat · geri tuşu · dışa dokunma) ama **cihazda doğrulanamadı**: adb'nin sentetik dokunmaları `FLAG_NOT_FOCUSABLE` overlay'e (baloncuk) ULAŞMIYOR — panel penceresine ulaşıyor (klavye açıldı). Baloncuk→panel geçişi yalnız gerçek parmakla test edilebilir. |
 | ~~FAZ 2b eski~~ | 🟡 ilk sürümde ✕ tetiklenmedi ve panel ekranda kilitli kaldı → kapatma ÜÇ yola çıkarıldı (✕ · geri tuşu · dışa dokunma) + akış artık metin değişmedikçe layout tetiklemiyor + `removeView` hatası yutulmuyor. Yeni APK cihazda doğrulanıyor |
