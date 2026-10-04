@@ -24,10 +24,11 @@ etiketler: [acik-is]
 ## AÇIK YARIMLAR (öncelik sırası)
 | # | Proje | Faz / İş | Nerede kaldı | Neden bırakıldı | Devam koşulu | Öncelik |
 |---|-------|----------|--------------|-----------------|--------------|---------|
-| Y1 | **VPS Hijyen** | Tur-1 bitti (~460M silindi + memory MCP kaldırıldı). Kalan: logs 62M arşiv, skill/kural hijyeni, link_bio kararı | Tur-1 tamam | Proje proje devam | 🔴 aktif |
+| Y1 | **VPS Hijyen** | 2026-09-07 denetimi: 696.677 dosya; kanıt ve temizlik adayları [RAPOR](claude/is_defteri/2026-09-07-vps-denetimi/RAPOR.md). Silme/durdurma henüz onaylanmadı | Tur-1 tamam | Proje proje devam | 🔴 aktif |
 | Y2 | **P2P DEFTER** | DEFTER FAZ 3 (okumaları deftere çevir) | FAZ 2 gölge; pencere 22.07'de doldu | Öncelik başka yerdeydi | Gölge sapması 0 teyit → FAZ 3 | 🟡 orta |
 | Y3 | **lise_diplomasi → ticari** | Çalışmayı para kazandıran ürüne dönüştür | Veri/çalışma var, verim alınmadı | Kullanıcı "boşa gitmesin, geliştir" dedi | Ticari fikir netleşince | 🟡 orta |
 | Y6 | **Denk → Play yayını** | Kod ve mağaza malzemesi HAZIR; kritik yol takvimde | 265 test yeşil, release imzalı, görsel+metin hazır (/root/denk/magaza/) | Play KİŞİSEL hesabı ($25) kullanıcıda; D-U-N-S GEREKMİYOR (ADR-002) | Hesap açılınca: 12 tester × 14 kesintisiz gün → 7 gün inceleme (~3 hafta) | 🔴 aktif |
+| Y7 | **Bybit anahtar rotasyonu** | Canlı API anahtarı 32 dosyada düz metin (settings yedekleri, settings.local.json izin kuralı, history.jsonl, transcript'ler) | settings.json'dan çıkarıldı (2026-09-12); rotasyon yapılmadı | Para-kritik: 6 PM2 servisi aynı anahtarı okuyor (p2p-bot, veles_x, veles-grids, funding-arb, bybit-lamba, bybit-nobetci) | Kullanıcı Bybit'te yeni anahtar üretince → p2p/.env + stop/start | 🔴 aktif |
 | Y4 | **obsidian → Claude hafızası** | Vault'u (55 md) telefona bağla + üst-seviye Claude CLI hafızası planı | Vault duruyor, karar bekliyor | Değer analizi gerek | Verimli olacaksa plan yap, değilse sil | ⚪ düşük |
 | Y5 | **P2P Kuzen kaldırma** | PM2 (kuzen-bot/idle) durduruldu + kod DEPO'da; AMA p2p'ye 107 ref (callback, ekstre_harcama=para) → kod sökümü = refactor | Standalone servis durdu; kod entegre | Ayrı careful refactor (KAPI+test) | ⚪ düşük — körlemesine silme |
 
@@ -106,3 +107,31 @@ bekliyor.
 
 **Kullanıcıdan gereken:** GitHub'da eski jetonu İPTAL et, yeni bir tane üret (repo yazma yetkisi),
 sonra tek komut: `hafiza-token <yeni_token>` → jetonu güvenli dosyaya yazar ve push'u dener.
+
+## 2026-08-28/09-01 · P2P + dubai_jobs oturumundan kalanlar
+
+- **İşCep kart harcaması kalıbı YOK** (p2p). İş Bankası "kör banka" sanılıyordu ama kart
+  harcaması bildirimi TUTAR + İŞYERİ taşıyor:
+  `"9451 numaralı kartınızla FLY.IO işyerinden 02.08.2026 tarih 8.88 USD tutarlı işleminiz…"`
+  Elde yalnız BAŞARISIZ işlem örneği var ("son kullanma tarihi hatalı"), başarılı hâlin metni
+  görülmedi. **Devam koşulu:** kullanıcı bir İşCep kart harcaması bildirimi gönderirse
+  `bank_patterns.json`'a kalıp eklenir → İş Bankası kart harcamaları bakiyeden düşer.
+
+- **dubai_jobs Telegram gönderimi kapalı** (`TG_SEND_ENABLED=false`, 2026-08-25). Sebep:
+  sender ile listener aynı Telethon oturum dosyası için yarışıyordu → listener 1585 restart.
+  Ölçüm: 21.257 denemede 4 başarı (%0,02; Telegram soğuk DM'i ve kanal yanıtını engelliyor).
+  **Devam koşulu:** bu yol gerçekten istenirse tek-sahip mimarisi gerekir — gönderim isteği
+  kuyruğa yazılır, oturumun sahibi (listener) gönderir. Bayrağı öylece açmak eski hatayı
+  geri getirir. Detay: rulebook #99.
+
+- **K8 körlüğü (p2p nöbetçi):** olay defteri BOŞKEN "kimliksiz satış" kontrolü sessizce
+  ölüyor (`_cift_yaz_ts=None` → hiçbir kayıt sayılmaz). Düzeltme denendi, mevcut sözleşmeyle
+  çakıştı ("legacy kayıt K8'i susturmalı") ve **geri alındı**. Canlıda defter dolu olduğu için
+  etkisi yok. **Devam koşulu:** defter sıfırlanır/göç edilirse önce bu kontrol ele alınmalı.
+
+- **Güvenlik: `/bildirim` anahtarı nginx erişim logunda düz metin** (URL sorgusunda gidiyor).
+  Log'u okuyabilen sahte "para geldi" bildirimi enjekte edebilir. Öneri: anahtarı header'a
+  taşı ya da nginx log formatında maskele.
+
+- **İki `claude-loop` oturumu açık** (pts/0 ve pts/2). Süreci öldürmek yetmez, döngü yeniden
+  açar. Ne iş yaptıkları bilinmiyor; kapatılacaksa önce `claude-loop` durdurulmalı.

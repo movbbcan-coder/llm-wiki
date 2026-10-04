@@ -1,0 +1,13 @@
+---
+ureten: hafiza-yayinla
+tip: ders
+no: 96
+etiketler: [ders, rulebook]
+---
+
+# Ders 96 — Bir düzeltmeyi uygularken "bu kavramı BAŞKA kim gösteriyor?" diye sor — yoksa ekranlar sessizce ayrışır ve kullanıcı sistemin tamamına güvenmeyi bırakır.
+
+**Bir düzeltmeyi uygularken "bu kavramı BAŞKA kim gösteriyor?" diye sor — yoksa ekranlar sessizce ayrışır ve kullanıcı sistemin tamamına güvenmeyi bırakır.** 2026-08-24'te iki düzeltme (gün sonu bakiye damgası + defter çift-sayım guard'ı) yalnız Finans yoluna yazıldı; ertesi gün kullanıcı aynı bankayı P2P'de 17.721,11 ₺, Finans'ta 16.793,02 ₺ gördü (**928,09 ₺**) ve haklı olarak uyardı: *"bir şey tamir ederken bağlı olan özellikleri de bilmelisin; yeni kod yazarak ölü adalara yol açma, sistem çöplüğe dönmesin."* Kök neden kavramsal kopyaydı: `ham.jsonl → hareket listesi` dönüşümünün **ÜÇ** ayrı yazımı vardı (`get_finans_data.bildirim_islemler`, `ekstre_harcama._bildirim_hareketleri`, `ekstre_harcama._bildirim_tuketim`). Düzeltme, yeni katman EKLEMEK değil kopyayı SİLMEK oldu: tek okuyucu `bildirim_parser.oku_akis` (damga kuralı dahil), üç çağrı yeri ona bağlandı; guard'ın girdisi (`zincir_bildirimleri`) da iki ekranda da dolduruldu — girdisi boş kalan guard sessizce devre dışı kalır, koruma varmış gibi görünür (#35). ÜÇ KATMANLI KAPI: (1) kaynak kilidi — tüketicilerde kendi parse döngüsü olamaz; (2) alan kilidi — iki ekran da guard girdisini taşımalı; (3) **canlı mutabakat K10** — iki ekranın ÜRETTİĞİ rakam karşılaştırılır, çünkü kopya olmadan da ayrışma doğar (katman sırası, farklı cutoff) ve "testler yeşil" bir ekranın doğruluğunu kanıtlamaz (#41). YAN DERSLER: (a) K10 canlı `finans_data.json` okuyordu → izole koşan üç nöbetçi test dosyası sahte P2P verisiyle GERÇEK Finans rakamını kıyaslayıp uydurma alarm üretti; **canlı yola bakan her kaynak — YAZAN değil OKUYAN bile — conftest'te izole edilmeli** (#30'un genişlemiş hâli) ve yol modül sabiti olmalı; (b) yeni bir "bilgi" seviyesi bulgusu eklemek `bulgular == []` diyen testleri kırdı → *temiz sistem* sözleşmesi "kritik/uyarı yok" diye netleştirildi ve `rapor_metni(kisa=True)` artık bilgi için mesaj atmıyor (bilgi de konuşsaydı nöbetçi sorun yokken düzenli konuşur, alarm yorgunluğu üretirdi — #82); (c) yol boyunca kapsam dışı bir körlük bulundu (olay defteri boşken K8'in kimliksiz kontrolü ölüyor) ve eklemeye çalıştığım dal mevcut bir sözleşmeyle çakışınca **geri alındı** — yarım davranış bırakmaktansa hiç eklememek doğrudur; bulgu kullanıcıya raporlandı.
+
+---
+*Kaynak: İki ekran ayrışması 2026-08-25 → bildirim_parser.oku_akis (tek okuyucu) + 3 kopya silindi · ekstre_harcama zincir_bildirimleri · nobetci K10 + FINANS_VERI + rapor_metni sessizliği · conftest izolasyonu · test_iki_ekran_ayrismasi.py (10)*

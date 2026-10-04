@@ -1,13 +1,24 @@
 <!-- ÜRETİLMİŞ: hafiza-yayinla — elle düzenleme, sonraki koşumda silinir -->
 
-# Dersler (99)
+# Dersler (110)
 
 En yeniden eskiye.
 
+- [[ders-100|#100 "Yeni kayıt yok" ile "aynı belge tekrar geldi" ayrı hâllerdir — ikisini aynı sessizliğe koyarsan kullanıcı sistemin çalışmadığını sanır.]]
+- [[ders-099|#99 İki servis aynı tek-yazıcılı kaynağı paylaşırsa yarışırlar; kaybeden sonsuz restart'a girer ve kullanıcı ALARMDAN bunalır — ama asıl soru "yarışılan şey neye yarıyordu?"dur.]]
+- [[ders-098|#98 Oturumunu profile yazan bir tarayıcı, 7/24 çalışırken sessizce sekme biriktirir — ve o birikme makineyi devirir.]]
+- [[ders-097|#97 Tek bir denetimsiz süreç, tüm VPS'i devirebilir — ve devrilme "her şey çöktü" diye görünür.]]
+- [[ders-096|#96 Soğuma anahtarı DEĞİŞKEN içerikten türetilirse soğuma ölür — ve ölü soğuma "ayar var" diye görünmez kalır.]]
+- [[ders-096|#96 Bir düzeltmeyi uygularken "bu kavramı BAŞKA kim gösteriyor?" diye sor — yoksa ekranlar sessizce ayrışır ve kullanıcı sistemin tamamına güvenmeyi bırakır.]]
 - [[ders-095|#95 Sahiplik sorusunda "nerede duruyor" ile "kim kullanıyor" ayrı şeylerdir; ikisi de tek başına yanlış cevap verir.]]
+- [[ders-095|#95 "Gider bakiyeden düşmüyor" şikâyetinin altından ÇİFT SAYIM çıkabilir — eksilme oluyordur, fazlalık onu örtüyordur.]]
 - [[ders-094|#94 `set -o pipefail` + `grep -q` = SESSİZCE AÇILAN KAPI.]]
+- [[ders-094|#94 Her girdiyi "önce X mi?" diye deneyen bir boru hattı, X OLMAYANLAR için yanlış alarm üretir — ve o gürültü gerçek arızayı gizler.]]
 - [[ders-093|#93 Tek kanala bakan koruma, o kanalın GÜRÜLTÜSÜNÜ arıza sanır — ve mesajı yanlış sebebi söylerse kullanıcı sistemi suçlar.]]
+- [[ders-093|#93 Canlı akış panelinde içeriği tazelemek kaydırma konumunu sıfırlıyorsa, kullanıcı HER ZAMAN en eski satırı görür ve akışı "geride kalmış" sanır — veri güncel, GÖRÜNEN yer eskidir.]]
+- [[ders-092|#92 Zaman aşımıyla kesilen SFTP aktarımı, boyutu DOĞRU ama içi delikli bir dosya bırakır — ve `adb install` ona "Success" der.]]
 - [[ders-092|#92 Türetilebilir bir sınırı MUTASYONLA saklarsan, süreç yeniden başladığında sessizce kaybolur — ve "geri alma" onu SIFIRA düşürüp korumayı tamamen kapatabilir.]]
+- [[ders-091|#91 Bir nöbetçinin ÖLÇÜM aracı, izlediği olayın tetikleyicisiyle aynıysa nöbetçi kendi kendini besler — ve düzeltmenin ilk turu bunu görmez.]]
 - [[ders-091|#91 "Makro/servis AÇIK" ile "tetikleyici ÇALIŞIYOR" ayrı şeylerdir — ve ölçüm aracının YETKİSİ ölçümün parçasıdır.]]
 - [[ders-090|#90 Bir nöbetçi, ÇARESİ OLMAYAN arızaya müdahale etmeye devam ederse hem boşuna çalışır hem onarımı ENGELLER.]]
 - [[ders-090|#90 Alıcının O AN yapabileceği bir şey yoksa uyarı gönderilmemeli — "durum" ile "olay" ayrı şeylerdir; aralığı seyreltmek gürültüyü çözmez.]]
