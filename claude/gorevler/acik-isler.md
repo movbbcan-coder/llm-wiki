@@ -135,3 +135,6 @@ sonra tek komut: `hafiza-token <yeni_token>` → jetonu güvenli dosyaya yazar v
 
 - **İki `claude-loop` oturumu açık** (pts/0 ve pts/2). Süreci öldürmek yetmez, döngü yeniden
   açar. Ne iş yaptıkları bilinmiyor; kapatılacaksa önce `claude-loop` durdurulmalı.
+
+## 2026-10-21 — P2P Graphify pilot benimsemesi
+Yerel kurulum/testler hazır; kullanıcı kararıyla yalnız Codex. Sağlayıcı429 sonrası Codex verim/başlangıç-kapanış/10 görev kapısı bekliyor; Claude aboneliği veya OAuth beklenmiyor. Tek durum ve devam kaynağı: `/root/p2p/mimari/GRAPHIFY_PILOT.md`; CHG-20261021-001.
