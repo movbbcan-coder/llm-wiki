@@ -24,6 +24,7 @@ etiketler: [acik-is]
 ## AÇIK YARIMLAR (öncelik sırası)
 | # | Proje | Faz / İş | Nerede kaldı | Neden bırakıldı | Devam koşulu | Öncelik |
 |---|-------|----------|--------------|-----------------|--------------|---------|
+| Y8 | **CCOTO satranç** | Belirsiz kare ve oyun ortasında konum takibi | Baloncuk kullanıcı tarafından çalışır doğrulandı; satranç düzeltmesi tamamlanmadı. Ayrıntı: `/root/oto/LEDGER.md` | Kullanıcı 2026-10-22 ders seçimi görevine geçti ve bekletilmesini istedi | Kullanıcı CCOTO satranç işine dönülmesini istediğinde | ⏸ bekliyor |
 | Y1 | **VPS Hijyen** | 2026-09-07 denetimi: 696.677 dosya; kanıt ve temizlik adayları [RAPOR](claude/is_defteri/2026-09-07-vps-denetimi/RAPOR.md). Silme/durdurma henüz onaylanmadı | Tur-1 tamam | Proje proje devam | 🔴 aktif |
 | Y2 | **P2P DEFTER** | DEFTER FAZ 3 (okumaları deftere çevir) | FAZ 2 gölge; pencere 22.07'de doldu | Öncelik başka yerdeydi | Gölge sapması 0 teyit → FAZ 3 | 🟡 orta |
 | Y3 | **lise_diplomasi → ticari** | Çalışmayı para kazandıran ürüne dönüştür | Veri/çalışma var, verim alınmadı | Kullanıcı "boşa gitmesin, geliştir" dedi | Ticari fikir netleşince | 🟡 orta |
