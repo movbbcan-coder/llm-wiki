@@ -6,6 +6,69 @@ etiketler: [proje, oto]
 
 # ccoto — Ajan Telefon Kontrolü + Chat APK (yaşayan defter)
 
+##2026-10-25 — E1 ilk sonuç: kapanış, ardından yeni başarı (Codex audit)
+
+run2 başlangıç17:51:10, son başarı17:51:24 İstanbul. İlk E1 denemesi
+18:37:05 (45dk40sn sonra),18:37:09 NETWORK_ERROR/navigation/Error;
+18:38:09 ilk login_screen;18:51:20 AUTH_REQUIRED doğrulaması. Yaklaşık47dk
+sonra giriş ekranı görüldü; bu süre gerçek geçerlilik/TTL değildir. Ara canlı
+başarı yok; 45dk kontrolün oturumu yenilediği kanıtlanmadı.61 örnekte aynı
+bot/browser/VNC kimlikleri; systemctl de restart olmadığını doğruluyor.
+18:52:48 dersler OK/live + reauth CONFIRMED, güncel auth boş: uyarı sonrası
+erişim tekrar doğrulanmış. Kimin/nasıl yeniden açtığı bu kayıtlardan bilinmez.
+Yeni başarı CLOSED run2'yi otomatik yeniden açmaz; E1 maintain_session yalnız
+ACTIVE run çalıştırdığından sonraki pilot için yeni ölçüm hazırlığı gerekir.
+E2'ye geçmeden navigation hatasının dar, sırsız teşhisi ve kapanış sonrası
+yeniden-deney akışı test edilmeli. Bu tur kod/servis/arm değiştirilmedi.
+
+##2026-10-25 — E1 onaylı canlı geçiş (Codex; ACTIVE)
+
+Kullanıcı açıkça onayladı ve giriş yapacağını bildirdi. BASELINE/RELEASE
+hash kapıları geçti; iki dosya aynı bota aktarıldı. Özel kod+SQLite yedeği
+`veri/universite/releases/session-e1-20261025T145037Z`; uygulama aracı
+`.work-beykent-master-e1/deploy/apply_e1.py`, rollback kod+deney metadata
+değerlerine döner, DB geçmişini geri sarmaz. E1 açık,17:51:07 İstanbul arm;
+17:51:08 worker heartbeat ve bot kimliği doğrulandı. Bot2081831 active,
+NRestarts0; browser1473049 ve VNC1472624 süreç/start kimlikleri değişmedi.
+Yapay test mesajı0. Başlangıç WAITING sonrası yeni canlı başarı17:51:10
+run2 ACTIVE oluşturdu;17:51:24 tekrar başarı, auth boş, login_pending no.
+Eski run1 CLOSED korundu; eski başarı deneye taşınmadı. İlk E1 okuması
+ACTIVE run'ın son başarısından45dk sonra; 7gün/24sa sonuç henüz yok.
+Ürün testleri önceki adayda546/546; canlı hash doğrulandı. Materyal/mail
+ve diğer envanter maddeleri sıradaki aşamalarda, tamamlandı sayılmadı.
+
+##2026-10-25 — Ana protokol ve E1 aday uygulama (Codex; üretim onayı bekliyor)
+
+SSOT `BEYKENT_MASTER_PLAN.md`: hipotez/eleme zinciri,7gün girişsiz kabul,
+öğrenci ihtiyaçları audit listesi, onaylı belge/mail, test/yayın kapıları.
+İzole `.work-beykent-master-e1` adayında Service.maintain_session ve mevcut
+worker çağrısı hazır: E1 açık + ACTIVE trace ile45dk ders okuması, gece/bildirim
+ayarından bağımsız; aynı okuyucu/kilit/form/VNC/cooldown kapıları korunur.
+Kapalı auth veya kullanıcı önceliğinde istek yok; cache gerçek başarı sayılmaz.
+Yeni servis/bağımlılık/bildirim yok.9 yeni test; son doğrulanmış537 testle
+546/546 geçti22,58sn (ağ kapalı,root salt okunur),6 eski uyarı. İlk fixture
+kopyası7 hata verdi; deploy dosyaları ve son release testleri tamamlandı,
+ürün davranışı gevşetilmedi. İki dosya diff/hash ve geri dönüş planı
+`.work-beykent-master-e1/docs/E1_RELEASE.md`. Canlı kod/metadata/servis
+değişmedi, pilot başlamadı. Kullanıcının önceki üretim öncesi onay şartı gereği
+sonraki adım kontrollü yayın onayı; materyal/mail genişletmeleri listede bekler.
+
+##2026-10-25 — İlk kontrollü oturum sonucu (Codex; salt okunur denetim)
+
+Trace run1 CLOSED. İstanbul saatleriyle25.10 03:52:05 ilk/tek canlı başarılı
+okuma;05:51:27 son obs_page pasif örneği;05:52:28 ilk login_screen;
+08:00:06 AUTH_REQUIRED doğrulaması. Girişten giriş ekranına yaklaşık2saat
+(2sa00dk24sn), fakat bu sunucu tarafında2saat geçerlilik kanıtı değildir:
+ara canlı başarı yok, eski DOM sunucu oturumunu kanıtlamaz.08'deki4sa08dk
+kapanış tespit gecikmesini içerir, oturum ömrü diye sunulmaz.
+247 yerel örneğin tümünde bot/browser/VNC süreç kimlikleri aynı; trace olaylarında
+restart/gap/clock change yok. systemctl güncel PID/start doğrulaması da aynı:
+bot1783459, browser1473049, VNC1472624. Browser eski NRestarts1 bu deneyden
+önce24.10 06:08'de oluşmuş. Dolayısıyla VNC/tarayıcı yeniden başlaması bu
+deneyde desteklenmiyor; OBS yaklaşık2saatlik süre/aşım davranışı olası,
+idle mi sabit ömür mü/başka giriş mi tek deneyle ayrışmaz. Şu an auth
+AUTH_REQUIRED, login_pending yes. Kod/arm/servis/OBS sayfası değiştirilmedi.
+
 ##2026-10-25 — Sonraki oturum için kalıcı deney hazır (Codex; canlı WAITING)
 
 Kullanıcı giriş yapmadan önce oturum loglarının geliştirilmesini, sonraki
@@ -66,38 +129,4 @@ Tam5 dönem tablosu ve sınırlar: `docs/SESSION_AUDIT_2026-10-25.md`.
 ## 2026-10-23 — Tek seferlik duyurular + Telegram tam metin (Codex; canlı)
 
 Sahip Codex. Kullanıcı genel duyuruların kaçırılmamasını, ders dışı olanların
-bir kere bildirilmesini istedi. Gösterilen duyuru canlı DOM'dan doğrulandı:
-26–30 Ekim Ayazağa–Maslak derslerinin çevrim içi yapılması; kullanıcıya kişisel
-uygunluk çıkarılmadı. Genel Duyurular → Tüm Duyurular listesi ve detay şeması
-normal menüyle doğrulandı. Öğretim elemanı mesajları açılmadı; genel Göster
-işlemi site davranışı olarak okundu işaretleyebilir, okunma durumu dedup için
-kullanılmaz. Snapshot kimlik/başlık/tarih/metin saklar; gönderen ve gizli alan yok.
-
-`announcements.py` saf parser/kimlik/kural, `resources` gözlenen tek yeni kaynak,
-`reader` arşiv/detay okuması, `store` ilk güncel duyuru yakalama, V2 kalıcı olay
-ve Telegram kart/detay sayfaları eklendi. Yeni servis/zamanlayıcı yok. Ayarlar
-→ Duyurular'da özet ve tam metin okunur; normal akademik ekranlarda web URL0.
-Genel duyuru bir kez; sıra, okunma veya arşivden geri gelme tekrar üretmez.
-Akademik gerçek içerik değişikliği yeni sürüm olabilir. İlk arşiv son7 gün/
-yakın gelecekte açık akademik tarih ile daraltılır; eski arşiv topluca gönderilmez.
-Kaynak cümlesi seçilir, yer/tarih/kişisel uygunluk uydurulmaz. Ek dosya açılmaz.
-
-Canlı9 metin6,72s'de OK/live; Notlar→Duyurular tekrarı6,35s. HTTP yanıtı/iframe
-DOM yarışı frame navigation olayıyla düzeltildi. İlk dağıtımdan sonraki taramada
-geçici navigation Timeout gözlendi; aynı sırada tekrar edilemedi. Yanlış güncel
-bildirim verilmedi. Bekleyen doğrulanmış bilgi taramadan önce gönderilir;
-yalnız pending duyuru ağ hatasında mevcut işçi90sn arayla sınırlı tekrar yapar,
-3 hatada durur. Auth/403/429/VNC/form korumaları aşılmaz. Arşiv45sn/3 sayfa
-sınırını aşarsa kısmi başarı kabul edilmez; eski veri korunur.
-
-Test493→511/511 (18 yeni),16,88s,6 eski uyarı; ağ kapalı/root salt okunur.
-İki eski testin sabit kaynak/rota sayıları doğrulanmış yeni kaynak için uyarlandı.
-Özel kod+DB yedeğiyle aynı bot güncellendi; son yedek
-`veri/universite/releases/smart-ui-v2-20261023T153719Z`. Bot1271255 active,
-NRestarts0; browser1171881/VNC594899 değişmedi. Son9 satır OK/live, bot kimliği
-ve başlangıcı doğrulandı.2 güncel akademik duyuru tek728 karakter bildirimde
-SENT; iki olay delivered, eski pending0. Yapay test mesajı yok.
-
-Tam kanıt/sınırlar/geri dönüş: `.work-smart-ui-v2.bbDCir/docs/ANNOUNCEMENTS_DEPLOYED.md`.
-Normal saatlik08–22 kontrol ve açık oturum şartı geçerlidir; fiziksel telefonda
-tüm detay sayfalarının görsel kabulü yapılmadı. Yeni duyuru kaynağı artık canlıdır.
+bir kere bildirilmesini istedi. Gösterilen duyuru canlı DOM'
