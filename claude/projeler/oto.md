@@ -6,6 +6,34 @@ etiketler: [proje, oto]
 
 # ccoto — Ajan Telefon Kontrolü + Chat APK (yaşayan defter)
 
+##2026-10-26 — E2 onaylı canlı geçiş (Codex; WAITING)
+
+Kullanıcı açık onayıyla E2 üç ürün dosyası aynı bota aktarıldı. Önkontrol
+PREFLIGHT_OK; canlı hashler RELEASE ile aynı. Yedek kod+SQLite:
+`veri/universite/releases/session-e2-20261026T105828Z`; uygulama ve metadata
+geri dönüş aracı `.work-beykent-e2/deploy/apply_e2.py`. E2/900sn hazır,
+arm26.10 13:58:28 İstanbul; worker heartbeat13:58:29 ve bot kimliği doğrulandı.
+Bot2544202 active/NRestarts0. Browser1473049 ve VNC1472624 PID/start
+kimlikleri değişmedi; test mesajı0. Önceki iki CLOSED run korundu; WAITING
+yeni canlı giriş doğrulaması bekliyor. İlk15dk denemesi ve süreklilik henüz
+ölçülmedi. Önceden izole556 test geçti; bu tur yeniden ürün değişikliği yok.
+Kullanıcı VNC girişi + Telegram Girişi tamamladım/doğrula düğmesine yönlendirilecek.
+
+##2026-10-26 — E2 hazırlığı tamamlandı (Codex; canlı geçiş bekliyor)
+
+Kullanıcının hazırlık/status isteğiyle gerçek geliştirme bu turda yapıldı.
+İzole `.work-beykent-e2`: E1 korunarak E2/900sn ayrı kalıcı metric/deneme
+işareti; kapanmış run sonrası yalnız yeni canlı doğrulanmış başarıyla ayrı run;
+eski kayıtlar korunur. Yanıltıcı 'açık süre' metni doğrulamalar arası süre olarak
+düzeltildi. Reader ham hata/sır yerine izinli sabit hata sınıfları kaydeder.
+Üç dosya için etki kapısı çalıştı; yeni10 test + eski546 =556/556 geçti23,09sn,
+6 eski uyarı,ağ kapalı/root salt okunur. RED ilk import eksiği; GREEN tam suite.
+Canlı kod/metadata/servis değişmedi, üretim onayı bekleniyor. Diff/hash ve
+deploy/apply_e2.py salt okunur PREFLIGHT_OK. Özel yedek+rollback ve aktif run
+koruma mevcut; browser/VNC değişmez. Tam inceleme `.work-beykent-e2/docs/E2_RELEASE.md`.
+Önceki navigation hatasının sebebi hâlâ kesin değil; yeni sınıflandırma yalnız
+gelecek olayı ayrıştırır. Kullanıcı girişini yeni sürüm hazır olmadan isteme.
+
 ##2026-10-25 — E1 ilk sonuç: kapanış, ardından yeni başarı (Codex audit)
 
 run2 başlangıç17:51:10, son başarı17:51:24 İstanbul. İlk E1 denemesi
@@ -100,33 +128,4 @@ Test511→537/537 (26 yeni),21,33s,6 eski uyarı; ağ kapalı/root salt okunur.
 Host provider üç gerçek birimi ve giriş ekranını gördü. Geçişte yalnız bot
 restart edildi; browser/VNC değişmedi. Son özel kod/DB yedeği
 `veri/universite/releases/session-trace-20261024T215122Z`. Son bot1783459
-active/NRestarts0; browser1473049 (eski NRestarts1), VNC1472624 aynı.25.10
-00:51:26 İstanbul arm; WAITING, run0, yerel heartbeat ilerliyor. Önce/sonra
-OBS fetch95→95, yapay test mesajı0; kullanıcı henüz yeni giriş yapmadı.
-Tüm staged sürüm hashleri doğrulandı. Aktif deneye giriş için kullanıcıya
-VNC + Telegram Girişi tamamladım/doğrula yolu verilecek; başka cihazdan yeni
-giriş yapmadan normal kullanım istenir. Sonuç/TTL henüz varmış gibi raporlanmaz.
-
-Tam protokol/sınırlar/geri dönüş: `.work-session-trace.gyrd6bk0/docs/SESSION_EXPERIMENT.md`;
-canlı kanıt `docs/DEPLOY_RESULT.json`, test `docs/TEST_RESULTS.txt`.
-
-##2026-10-25 — OBS oturum süresi salt okunur inceleme (Codex)
-
-Kullanıcının24 Ekim giriş uyarısı sorusu üzerine canlı SQLite metrics/metadata,
-Tracker sözleşmesi ve systemd/journal karşılaştırıldı.5 kapanma gözlemi var;
-hepsi NOT_EXACT_EXPIRY. Son oturum24.10 02:39:20 ilk,02:39:56 son başarılı
-okuma;08:00:26 AUTH_REQUIRED tespiti.5sa21dk06sn gerçek TTL değil, gözlem üst
-sınırı; arada5sa20dk ara doğrulama yok. Gece rutin kontrol08'e kadar duruyor.
-
-Önemli ek kanıt:24.10 06:08:20–24 bot/browser/VNC normal şekilde durdurulmuş
-ve başlatılmış; browser ilk başlatma başarısız,06:08:40 tekrar ayağa kalkmış
-(NRestarts1). Bu nedenle son kapanma otomatik OBS süresine bağlanamaz; tarayıcı
-yaşam döngüsü etkisi karışıyor. Kim/ne durdurdu bu dar log kesitinden bilinmiyor.
-Host uptime Haziran'dan beri; VPS reboot iddiası yok. Kod, oturum, servis ve
-bildirim düzeni değiştirilmedi; OBS'ye istek veya Telegram mesajı gönderilmedi.
-Tam5 dönem tablosu ve sınırlar: `docs/SESSION_AUDIT_2026-10-25.md`.
-
-## 2026-10-23 — Tek seferlik duyurular + Telegram tam metin (Codex; canlı)
-
-Sahip Codex. Kullanıcı genel duyuruların kaçırılmamasını, ders dışı olanların
-bir kere bildirilmesini istedi. Gösterilen duyuru canlı DOM'
+act
