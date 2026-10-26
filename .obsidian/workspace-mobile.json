@@ -4,17 +4,17 @@
     "type": "split",
     "children": [
       {
-        "id": "09c3c1c669af9230",
+        "id": "ecd2487d21b498e9",
         "type": "tabs",
         "children": [
           {
-            "id": "a12a22110fe5177f",
+            "id": "5e30c57e4036bd3c",
             "type": "leaf",
             "state": {
-              "type": "graph",
+              "type": "empty",
               "state": {},
-              "icon": "lucide-git-fork",
-              "title": "Grafik Görünümü"
+              "icon": "lucide-file",
+              "title": "Yeni sekme"
             }
           }
         ]
@@ -179,7 +179,7 @@
       "bases:Yeni taban oluştur": false
     }
   },
-  "active": "a12a22110fe5177f",
+  "active": "5e30c57e4036bd3c",
   "lastOpenFiles": [
     "claude/gunluk/2026-09-27.md",
     "claude/00-hafiza.md",
