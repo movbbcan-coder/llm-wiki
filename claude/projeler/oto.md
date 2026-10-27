@@ -6,6 +6,57 @@ etiketler: [proje, oto]
 
 # ccoto — Ajan Telefon Kontrolü + Chat APK (yaşayan defter)
 
+##2026-10-27 — Canlı profil ve öğrenci mail yolu audit (Codex; salt okunur)
+
+Kullanıcı girişten sonra inceleme istedi. Canlı üst öğrenci menüsüyle öğrenci
+numarası doğrulandı; önceki tahmini numara yanlıştı (kişisel değer burada tutulmaz).
+Kayıtsız form değişikliği kontrolü false. Ders kayıt kapanış bilgilendirmesi
+Tamam ile kapatılıp Profil normal menüsünden ogr_ozluk.aspx açıldı; yalnız
+e-posta etiketli alanlar okundu. İki kişisel e-posta var, kurumsal öğrenci
+adresini gösteren alan yok. Hiçbir değer değiştirilmedi veya form gönderilmedi.
+Kurumsal adres formatı hesap etkinliği kanıtı değildir. Resmî/e-posta sayfası
+E-Posta Öğrenci bağlantısını Google/accounts.google.com'a, personel bağlantısını
+Outlook'a veriyor; kullanıcıya doğru öğrenci yolu sunulacak. Login/şifre işlemi yok.
+Canlı menü envanteri: danışman/devamsızlık, gelen-gönderilen mesajlar, yapılacaklar,
+belge talebi, tez/seminer/mazeret/kayıt dondurma başvuruları bulunuyor; içerikleri
+bu tur doğrulanmadı. Dosya/materyal listesi ana menüde görülmedi; Pusula ayrı
+kaynak olabilir, henüz entegrasyon yok. Öğrenci numarası/eposta/oturumlu route
+parametreleri kalıcı audit'e kopyalanmadı. E2 run3 ACTIVE; son canlı başarı
+27.10 23:39:50 İstanbul; aradaki donma/yeniden kullanıcı girişi nedeniyle run
+yaşını kesintisiz tek oturum ömrü sayma. Browser/VNC restartı yok.
+
+##2026-10-27 — VNC tıklamama kök nedeni: MemoryHigh baskısı (Codex; toparlandı)
+
+Yeni görseller sonrası host ölçümü: Chrome1473049 Dsl,
+wchan=mem_cgroup_handle_over_hi; cgroup MemoryCurrent581091328,
+MemoryHigh536870912,MemoryMax805306368. memory.events high114719345,
+oom/oom_kill0; PSI full avg10=98.20.9233 LISTEN RecvQ7 ve HTTP000.
+Host MemAvailable3020804096. Yalnız runtime systemctl set-property ile
+MemoryHigh768M/MemoryMax1G uygulandı (eski512M/768M); swap128M aynı,
+servis restartı yok. Ardından HTTP200, aynı1473049 Ssl/do_poll; PSI düşüyor.
+Bu olayın yerel takılma nedeni bellek baskısıdır, OBS TTL olarak yorumlanamaz.
+CDP'de yalnız chromewebdata hata sekmesi kaldığı görüldü; kullanıcı sayfa
+onarımı kapsamında aynı hata sekmesi resmî OBS login.aspx'e açıldı:
+HTTP200,/oibs/std/login.aspx, password alanı sayısı2 (değer okunmadı).
+Bot/VNC/tarayıcı restartı, login veya Telegram mesajı yok. Kişisel mail/numara
+henüz doğrulanmadı. Runtime sınır reboot sonrası kalıcı değildir; deploy unit
+hâlâ512M/768M. Sonraki iş: sınır kaynaklarını/testleri tutarlı kalıcı ayara
+taşımak, PSI/MemoryHigh olaylarını oturum deneyinden ayrı izlemek. Geri dönüş
+runtime MemoryHigh512M/MemoryMax768M; donmayı geri getirebileceği için ölçmeden
+uygulama. Önceki oturum kapanışlarının tümünü bu vakaya bağlayacak kanıt yok.
+
+##2026-10-27 — VNC OBS yükleme takılması (Codex; normal yenileme denendi)
+
+Kullanıcı yükleme ekranında sayfayı yenileyemediğini bildirdi. CDP9233
+host erişimi5sn Timeout; curl6sn HTTP000. Browser1473049 active/running,
+151task,581MB,MemoryPeak582MB; son dar journal kesitinde olay yok. Bunlar
+OOM veya OBS oturum kapanış kanıtı değildir. VNC mount namespace üzerinden
+odak pencere OBS index.aspx olarak doğrulandı; kullanıcı isteğiyle yalnız
+Ctrl+R gönderildi. Sonrasında CDP hâlâ HTTP000, odak aynı. Sayfanın toparlandığı
+doğrulanamadı. Browser/VNC/bot restartı ve giriş yapılmadı, credential okunmadı.
+Sonraki güvenli adım yalnız OBS browser yeniden başlatma için kullanıcı onayı;
+yeniden giriş gerekebilir. Mail adresi/öğrenci numarası henüz canlı doğrulanmadı.
+
 ##2026-10-26 — E2 onaylı canlı geçiş (Codex; WAITING)
 
 Kullanıcı açık onayıyla E2 üç ürün dosyası aynı bota aktarıldı. Önkontrol
@@ -75,57 +126,4 @@ ayarından bağımsız; aynı okuyucu/kilit/form/VNC/cooldown kapıları korunur
 Kapalı auth veya kullanıcı önceliğinde istek yok; cache gerçek başarı sayılmaz.
 Yeni servis/bağımlılık/bildirim yok.9 yeni test; son doğrulanmış537 testle
 546/546 geçti22,58sn (ağ kapalı,root salt okunur),6 eski uyarı. İlk fixture
-kopyası7 hata verdi; deploy dosyaları ve son release testleri tamamlandı,
-ürün davranışı gevşetilmedi. İki dosya diff/hash ve geri dönüş planı
-`.work-beykent-master-e1/docs/E1_RELEASE.md`. Canlı kod/metadata/servis
-değişmedi, pilot başlamadı. Kullanıcının önceki üretim öncesi onay şartı gereği
-sonraki adım kontrollü yayın onayı; materyal/mail genişletmeleri listede bekler.
-
-##2026-10-25 — İlk kontrollü oturum sonucu (Codex; salt okunur denetim)
-
-Trace run1 CLOSED. İstanbul saatleriyle25.10 03:52:05 ilk/tek canlı başarılı
-okuma;05:51:27 son obs_page pasif örneği;05:52:28 ilk login_screen;
-08:00:06 AUTH_REQUIRED doğrulaması. Girişten giriş ekranına yaklaşık2saat
-(2sa00dk24sn), fakat bu sunucu tarafında2saat geçerlilik kanıtı değildir:
-ara canlı başarı yok, eski DOM sunucu oturumunu kanıtlamaz.08'deki4sa08dk
-kapanış tespit gecikmesini içerir, oturum ömrü diye sunulmaz.
-247 yerel örneğin tümünde bot/browser/VNC süreç kimlikleri aynı; trace olaylarında
-restart/gap/clock change yok. systemctl güncel PID/start doğrulaması da aynı:
-bot1783459, browser1473049, VNC1472624. Browser eski NRestarts1 bu deneyden
-önce24.10 06:08'de oluşmuş. Dolayısıyla VNC/tarayıcı yeniden başlaması bu
-deneyde desteklenmiyor; OBS yaklaşık2saatlik süre/aşım davranışı olası,
-idle mi sabit ömür mü/başka giriş mi tek deneyle ayrışmaz. Şu an auth
-AUTH_REQUIRED, login_pending yes. Kod/arm/servis/OBS sayfası değiştirilmedi.
-
-##2026-10-25 — Sonraki oturum için kalıcı deney hazır (Codex; canlı WAITING)
-
-Kullanıcı giriş yapmadan önce oturum loglarının geliştirilmesini, sonraki
-kapanışta süre/VNC-restart etkisinin kanıtla ayrılmasını istedi. Sahip Codex.
-İzole kopya `.work-session-trace.gyrd6bk0`; kendi basit API/işçi mimarisi korundu.
-Yeni `session_trace.py` kalıcı runs/events/samples, `session_probe.py` sırsız
-yerel /proc+pasif CDP gözlemi. Store şeması additive; Service yalnız gerçek
-fetch sonuçlarını kaydeder. Mevcut worker60sn yerel tick'i gece de yürütür;
-OBS'ye ilave istek, yenileme veya yeni timer/servis yoktur. İnsan önceliği
-korunur, gözlem kilidi alınamazsa boşluk raporlanır. PID+start tick+engine,
-boot/monotonik saat, VNC izleyici değişimi, görünür giriş ekranı ve hata
-sınıfları kaydedilir. Cookie/şifre/token/HTML/IP/tuş kaydı yoktur.
-
-Başlangıç ilk yeni OK/EMPTY live ve cached false doğrulamadır; eski metadata
-ve önbellek deneye taşınmaz. Kapanış ilk yeni AUTH_REQUIRED sonucudur; ağ,
-browser erişimsizliği, görünür HTML veya ekran yedeği kapanma diye yazılmaz.
-Kaynak AUTH sonucu her zaman yeni401 değildir; kanıt adı AUTH_REQUIRED_RETURNED.
-Son başarı–ilk auth aralığı, tek giriş varsayımındaki doğrulama süresi, ilk
-giriş ekranı, restart/boşluk/olası yeniden giriş ayrı raporlanır. Saat oynaması
-ve boot değişiminde süreye yanlış kesinlik verilmez. Görülmeyen yeniden giriş
-olmayacağı deney varsayımıdır. Mevcut saatlik08–22 istekler devam ettiği için
-bu saf idle TTL ölçümü değildir; gece gerçek süre aralığı geniş kalabilir.
-
-Özet Ayarlar/Oturum'da ve sonraki gerçek tek kapanış uyarısında gösterilir;
-spam veya yeni mesaj çizelgesi eklenmedi. Tek deney kapanınca örnekleme durur;
-yeniden arm geçmişi silmez ve aktif deneyi sıfırlamayı reddeder.
-
-Test511→537/537 (26 yeni),21,33s,6 eski uyarı; ağ kapalı/root salt okunur.
-Host provider üç gerçek birimi ve giriş ekranını gördü. Geçişte yalnız bot
-restart edildi; browser/VNC değişmedi. Son özel kod/DB yedeği
-`veri/universite/releases/session-trace-20261024T215122Z`. Son bot1783459
-act
+kopyası7 hata verdi; deploy dosyal
