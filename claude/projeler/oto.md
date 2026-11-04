@@ -6,6 +6,17 @@ etiketler: [proje, oto]
 
 # ccoto — Ajan Telefon Kontrolü + Chat APK (yaşayan defter)
 
+##2026-11-04 — Telefon kasma/Play Store read-only teşhis: ADB yok
+
+Kullanıcı kesin salt-okunur sınırla CPU/RAM/ANR/thermal/input/overlay audit
+istedi. SSH/Termux ulaşılabilir, doğrudan adb devices -l exit0 fakat liste boş.
+tel -a devices ilk denemesi boş cihaz seçimiyle help döndürdü; ADB client
+Termux server'ını otomatik açtı, Android cihaz/ayar/uygulama değiştirilmedi.
+Onarım/tel -c/settings put/connect/pair çalıştırılmadı. ADB shell olmadan
+ölçüm ve5neden sıralaması kanıtsız olduğundan yapılmadı. Ayrıntı ve devam
+koşulu `bulgular/android-readonly-20261104/README.md`; kullanıcı mevcut ADB
+erişimini hazır edince cihazlistesiyle tekrar doğrula. Ham bugreport alınmadı.
+
 ## 2026-10-28 — Baloncuk/mesaj tasarımı0.3.3 ve kilit düzeltmesi (UI_PASS_AUTO_PENDING)
 
 Kullanıcı kaybolma, okunabilir mesajlar ve taş figürü istedi; ayrıca şeffaf/tıklanamaz
