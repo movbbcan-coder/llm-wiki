@@ -6,6 +6,47 @@ etiketler: [proje, oto]
 
 # ccoto — Ajan Telefon Kontrolü + Chat APK (yaşayan defter)
 
+##2026-11-06 — Yenilenmiş Mi kodunda da protokol hatası; TCP erişimi doğrulanmadı
+
+Kullanıcı güncel Mi ana+eşleme ekranlarını verdi.12sn sınırlandırılmış,
+stdin üzerinden kodlu pair exit1: `protocol fault (couldn't read status
+message): Success`; pairedfalse. Aynı kodu yineleme/eskikod suçlama bırakıldı.
+S24Termux'ta3sn socket timeout ile Mi anaADBportuna connect_ex=11 döndü,
+bağlantı kurulmadı. Bu sayıdan tek başına modem/istemci izolasyonu,VPN,
+Mi firewall veya portkapalı nedeni seçilmez; TCP erişimi doğrulanamadı.
+Ping'in önceki permission hatasıyla karıştırılmaz. Kod/GUID/SSID/IP/port
+bu kayda yazılmadı, cihaz güvenlik/Wi-Fi ayarı değiştirilmedi, yeni pairing
+daemon veya uygulama kurulmadı. MiADB hâlâUNKNOWN/başarısız; kullanıcıdan
+tekrar kod istemeden önce aynıSSID/konuk ağ/yerel istemci erişimi ve gerçek
+portu dar taze oturumda ayır. Devir SSOT güncellendi; SMS yeni iş açılmadı.
+
+##2026-11-06 — Aynı evLAN adresleri sonrası tekrar: S24ADB var,Mi yok
+
+Kullanıcı S24'ün evLAN kablosuz-debug bağlantı ekranını ve Mi'de aynı eşleme
+penceresinin açık olduğunu bildirdi. S24Termux üzerinden15sn limitli Mi
+adb pair denemesi exit1/protocol fault; başarı yok. Kod kalıcı dosya/rapora
+yazılmadı. S24'ün kendi yeni bağlantıportuna connect başarılı,modelSM_S928B
+device olarak doğrulandı. Mi'nin önceki ana bağlantıportuna8sn connect denemesi
+yanıt üretmedi; listede yalnız S24 var. Mi yönetim erişimi henüz yok.
+Protokol hatasından kod süresi doldu/yanlış veya cihaz arızalı sonucu çıkarılmadı.
+Mi'de eşleme penceresini kapat/aç ve güncel ana+eşleme uç noktalarını doğrula;
+gerekirse sonraki taze oturumda istemci sürümü/erişilebilirlik testini daralt.
+Yeni telefon ayarı,uygulama/daemon restartı,SMS/OTP veya yeni alt iş yok.
+Devir `docs/DEVIR_TELEFON_KOPRUSU_20261106.md`.
+
+##2026-11-06 — Mi kablosuz eşleme denemesi sonuçlanmadı (Codex)
+
+Kullanıcı Mi'nin kablosuz debug ana/eşleme ekranını verdi. Mevcut S24Termux
+SSH kanalı üzerinden MiLAN eşleme uç noktasına adb pair başlatıldı; kullanıcı
+ekrandaki kodu verdi fakat başarı/yanıt gelmedi. Kod/log/kalıcı veri kaydedilmedi.
+Ping sendmsg Operation not permitted: bu ortam kısıtı ulaşılmazlık kanıtı değil.
+Son adb devices listesi boş; Mi veya S24'e ADB şu an doğrulanmadı. Bekleyen
+yalnız adb pair istemcisi tam komut regex'iyle TERM edilip iptal edildi;
+ADBdaemon/telefon/uygulama/hotspot değiştirilmedi. Sonraki koşul S24 veMi'nin
+aynı evWi-Fi ağına bağlı olduğunun teyidi (S24'ün Mi hotspot'unda kalmaması),
+sonra güncel Mi eşleme ekranıyla taze oturumda tekrar. Eskiport/kod geçerli
+varsayılmaz. SMS/pil kurulumuna veya yeni ayar denemesine geçilmedi.
+
 ##2026-11-06 —20:03 kullanıcı kopma bildirimi; Mi kablosuz ADB menüsü bulundu
 
 Kullanıcı20:03 tekrar kopma ve elle bağlanmayı bildirdi; dakika hassasiyetli
@@ -87,45 +128,4 @@ Tek seferlik30dk READ_ONLY_NO_REPAIR gözlemi19:44:09 İstanbul başladı,
 beklenen bitiş20:14. PID763709; ilk örnek reachable/connected=true,
 setting0,RSSI-42,frekans2412. Yeni servis/watchdog değil, yalnız örnek kaydı;
 SSID/MAC/IP/SMS saklanmaz. `observer-status.json` ve `trial-samples.jsonl`
-canlı sonuç SSOT. Sonuç30sn örnekleriyle sınırlıdır; kısa aralık kopmaları
-kaçabilir.24sa/7gün kabulü ve otomatik toparlanma henüz tamamlanmadı.
-SMS/OTP geçmiş sorusunda görünür konuşmada ve dar kayıtlarda kurulmuş aktarım
-bulunmadı; kapsam bu tur SMS'e genişletilmedi. Kendi iki telefon arasında
-güvenli aktarım sonraki ayrı iş, hiçbir kod okunmadı/iletilmedi.
-
-##2026-11-06 — Hotspot plan uygulama onayı; erişim yine kesildi (Codex)
-
-Kullanıcı dayanıklılık planını uygulamayı onayladı; aynı kontrollü kapsamda
-devam yetkisi vardır, yeniden genel izin istenmez. İlk adım ayar/kuralı salt
-okunur doğrulamak, kanıtlı tek değişken denemesi; rastgele ayar değişimi yok.
-Yeni adb devices -l ve dört hedefli settings get çağrısı öncesinde SSH8022
-banner exchange timeout oldu. Cihaz kabuğuna erişim gerçekleşmedi; settings
-put/uygulama veya izin değişikliği yapılmadı. Doğrulanmamış anahtar değeri
-varsayılmadı. Sonraki adım tünel dönünce mevcut ADB cihazı/portu doğrulama,
-S24 akıllı ağ geçişi ve ilgili otomasyonun gerçek durumunu inceleme.
-Kullanıcı Mi10TPro SMS/OTP'nin S24'e gelmesi konusunu geçmişte konuşup
-konuşmadığımızı sordu; görünen konuşma ve dar proje kayıtlarında tamamlanmış
-SMS relay kurulumu bulunmadı. Bu ayrı ihtiyaç bağlantı düzeldikten sonra
-ele alınır; bu tur SMS okunmadı/iletilmedi, kod veya iletişim sırrı saklanmadı.
-
-##2026-11-06 — Hotspot ADB kopma kaydı + dayanıklılık tasarımı (Codex)
-
-Kullanıcı güncel port ekranı verdi; mevcut eşleşmeyle ADB connect başarılı,
-yeni pair/kod kullanılmadı. Yalnız Wi-Fi/network_stack/connectivity/thermal ve
-sınırlı log okundu; hiçbir telefon ayarı/uygulama değiştirilmedi.19:27–19:33
-arasında8tekil framework kopması reason1/UNSPECIFIED,locallyGenerated=true;
-yerel bildirim uygulama/driver tetikleyicisini kesinleştirmez.10association
-rejection/status-1 var; son saatte DHCP_FAILURE olayı yok.19:35 sağlıklı
-status/IP/RSSI-39/2412MHz. Güçlü sinyal ve yerel kod saldırı veya tek uygulama
-nedeni kanıtı değildir. Kod/SSID/BSSID/IP kalıcı rapora taşınmadı.
-Tek kaynak `bulgular/hotspot-readonly-20261106/RAPOR_VE_PLAN.md`: salt-okunur
-temel kayıt → yerel tetikleyici → onaylı tek değişken deneyi → mevcut tek
-toparlanma akışı →24sa/7gün kapıları. Toplama tamamlandı; kalıcı çözüm/24sa
-pilot/otomatik kurtarma uygulanmadı. Ham700/600. Sonraki iş gerekli onay ve
-aynı-zamanlı Mi/S24 kanıtı; sonsuz bağlantı veya saldırı yokluğu garantisi yok.
-
-##2026-11-06 — Android read-only audit kurtarma ve rapor (Codex; PARTIAL)
-
-Sunucu kesintisi sonrası4Kasım kaydedilmiş35 başarılı komut artefaktı bulundu;
-ikinci/sorun örneği yok, son followup çağrısı başlamamış. Şimdi tel/SSH8022
-connection refused(host doğrulaması da aynı)
+canlı sonuç SSOT. Sonuç30sn örnekleriyle sınırlıdır; kı
