@@ -6,6 +6,24 @@ etiketler: [proje, oto]
 
 # ccoto — Ajan Telefon Kontrolü + Chat APK (yaşayan defter)
 
+##2026-11-06 — Android read-only audit kurtarma ve rapor (Codex; PARTIAL)
+
+Sunucu kesintisi sonrası4Kasım kaydedilmiş35 başarılı komut artefaktı bulundu;
+ikinci/sorun örneği yok, son followup çağrısı başlamamış. Şimdi tel/SSH8022
+connection refused(host doğrulaması da aynı); otomatik onarım/ayar yok.
+Önceki kullanıcı ekranıyla mevcut eşleşmeye adb connect olmuş, pair kodu
+kullanılmamış. CihazSM-S928B/Android17/API37; kullanıcı 'normal' demişti.
+CPU normal örnekte çoğunlukla boşta; Input enabled/not frozen/queue empty,
+68G disk boş. Vending/GMS PID/CPU/PSS ayrı eşlendi; paketli meminfo çağrısı
+global döndüğünden heap dump iddiası yok. NotchTouch görünürtrusted overlay
+NOT_TOUCHABLE tam ekran ve314x104 etkileşim alanı; suçlu ilan edilmedi.
+Store güncelleme zamanı, çoklu profil/swap, hafifthermal ve gece Permission
+Controller crash'i5düşük/orta güvenli hipotez olarak raporlandı. Arıza anı
+yok; kök neden ve çözüm kanıtlanmadı. Gizlilikle arındırılmış rapor tek kaynak:
+`bulgular/android-readonly-20261104/RAPOR.md`. Ham dosyalar özel yerel700/600;
+uygulama/izin/veri/ayar/cihaz restartı değişmedi. Sonraki adım mevcut erişim
+yeniden gelince aynı komutlarla gerçek sorun+normal kısa örnek karşılaştırması.
+
 ##2026-11-04 — Telefon kasma/Play Store read-only teşhis: ADB yok
 
 Kullanıcı kesin salt-okunur sınırla CPU/RAM/ANR/thermal/input/overlay audit
