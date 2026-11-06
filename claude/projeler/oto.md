@@ -6,56 +6,126 @@ etiketler: [proje, oto]
 
 # ccoto — Ajan Telefon Kontrolü + Chat APK (yaşayan defter)
 
+##2026-11-06 —20:03 kullanıcı kopma bildirimi; Mi kablosuz ADB menüsü bulundu
+
+Kullanıcı20:03 tekrar kopma ve elle bağlanmayı bildirdi; dakika hassasiyetli
+kullanıcı kanıtı, yeni ADB/log doğrulaması değil. Önceki güç tasarrufu denemesi
+geri alınmıştı; bu andaki telefon ayarı yeniden ölçülmedi. Mi geliştirici
+ekranının ilk fotoğrafında 'Kablosuz hata ayıklama' satırı mevcut, altında
+Wi-Fi bağlı olduğunda hata ayıklama açıklaması var. Menü görünürlüğü
+doğrulandı; açılması/eşleme/Mi uzaktan erişimi henüz doğrulanmadı. Kullanıcı
+o satıra yönlendirilecek; USB yükleme/güvenlik izinleri/diğer ayarlar gerekmiyor.
+Devam SSOT `docs/DEVIR_TELEFON_KOPRUSU_20261106.md`; yeni alt iş açılmadı.
+
+##2026-11-06 — Mi sürümü kullanıcı ekranından doğrulandı
+
+Mi10TPro/MIUI Global14.0.1.0(SJDMIXM)/Android12 SKQ1.211006.001,
+güvenlik2023-03-01. Kablosuz ADB menüsü ve Mi yönetim erişimi hâlâ
+doğrulanmadı; telefon değişikliği yapılmadı. Taze iş için sürüm SSOT
+`docs/DEVIR_TELEFON_KOPRUSU_20261106.md` güncellendi. Sonraki gerekli ekran
+Mi Geliştirici seçenekleri/hata ayıklama bölümü; yeni alt iş başlatılmadı.
+
+##2026-11-06 — Deneme geri alındı ve gözlem kapatıldı (Codex; mevcut hedef kapandı)
+
+Kullanıcının ana kablosuz-debug ekranındaki güncel bağlantı portuyla aynı
+eşleşmeden ADB bağlandı; yeni pair/kod gerekmedi. Secure/wifi_adps_enable
+yalnız0önkoşulunda eski1değerine döndürüldü; komut readback1 PASS.
+`power-save-trial.json` FAILED_AND_ROLLED_BACK; zamanı ve olay satırı yazıldı.
+Eski portu kullanan bounded host observe_trial.py PID763709 cmdline tam
+yol eşleşmesi kontrol edilerek SIGINT ile kapatıldı; telefon/app/tünel
+servisi durdurulmadı. Başka ayar değişmedi. Yaklaşık3dk sonra kullanıcı
+kopma teyidi nedeniyle tek değişken denemesi başarısız; asıl neden UNKNOWN.
+Sonraki iş taze /root/oto oturumunda Mi/S24aynı-zamanlı AP/istemci kanıtı ve
+mevcut otomasyon audit'i; SMS köprüsünden önce bağlantı kabul kapısı var.
+SSOT `bulgular/hotspot-readonly-20261106/RAPOR_VE_PLAN.md`, köprü devir dosyası
+`docs/DEVIR_TELEFON_KOPRUSU_20261106.md`. Güncel portu kalıcı varsayma.
+
+##2026-11-06 —19:47 kopması: güç tasarrufu denemesi başarısız; geri dönüş bekliyor
+
+Kullanıcı19:47 yeniden kopma bildirdi. Gözlemde19:46:17.847 son erişilebilir
+örnek,setting0/RSSI-42;19:46:49.913 ilk SSH_OR_ADB_UNAVAILABLE,19:47:26 ve
+19:48:27 tekrarları var. Bu yaklaşık zaman eşleşmesi denemenin tek başına
+kopmayı önlemediğini gösterir; güç tasarrufu hiçbir katkı yapmaz sonucu değil.
+Collector reachable=false iken wifi_connected=false yazıyor; bu satırlarda
+Wi-Fi durumu UNKNOWN sayılmalı, telefon Wi-Fi'sinin kapalı kanıtı değildir.
+Ham veri silinmedi/değiştirilmedi; kullanıcı bildirimi gerçek kopma için ayrı
+kanıt. `power-save-trial.json` FAILED_USER_CONFIRMED_ROLLBACK_PENDING oldu,
+`trial-events.jsonl` dakika hassasiyetli kullanıcı olayı eklendi.
+SSHgeri geldi fakat adb devices boş; önceki bağlantı portuna connect refused.
+Bu yüzden secure/wifi_adps_enable eski1değerine dönme henüz uygulanamadı;
+son doğrulanan değer0. Güncel ADB bağlantı portu gelince yalnız guard/readback
+ile1'e geri dön; yeni ayar denemesi yapma.30dk gözlem halen ölçüm içindir,
+başarı olarak sunulmaz. Köprü kurulumunun bağlantı kapısı geçilmedi. Sonraki
+taze oturum ilk görevi geri dönüş+kopma tetikleyicisini bulmak; SMS yeni iş.
+
+##2026-11-06 — Kullanıcının telefon köprüsü sözleşmesi kaydedildi; taze oturuma devir
+
+Kullanıcı sıra/kabul ölçütlerini verdi: MiSIM/hotspot yanında,S24 ana; önce
+pil/5dkheartbeat/15dkoffline/%20-%10 eşikleri; sonra cihazda şifreli SMS/OTP
+ve VPS yalnızrelay; sonra arayan/cevapsız,24sa10SMS/15sn/tekilleştirme ve3arama;
+ses daha sonra. Tam SSOT `docs/DEVIR_TELEFON_KOPRUSU_20261106.md`.
+Bu tur bağlam sınırı nedeniyle yeni kurulum/delegasyon başlatılmadı; iki cihaz
+MacroDroid yedeği ve MiAndroid/izin keşfi henüz yapılmadı. SMS okunmadı veya
+iletilmedi. Mevcut hotspot gözlemi19:45:45'te4/4 bağlı,henüz~2dk;30dk bitmedi,
+24sa kabulü yok. Yeni görevden önce20:14 sonrasıobserver sonuçları kontrol
+edilmeli. Taze oturum komutu `ajan-yeni codex /root/oto`; önce bu devir okunur.
+Kullanıcıya tekrar genel 'hangi telefon SIM/hotspot' sorusu sorulmaz.
+
+##2026-11-06 — Onaylı tek değişken denemesi uygulandı: Wi-Fi güç tasarrufu
+
+Kopma sonrası aynı ADB eşleşmesi döndü; yeni pair/kod gerekmedi. Sayısal
+Wi-Fi tercihlerinin salt okunur kontrolü sem_wifi_switch_to_better_wifi_enabled=0
+ve ekran açık varyantı0 gösterdi; bunlar değiştirilmedi. wifi_adps_enable
+global/system null, secure1 idi. Kullanıcının plan uygulama onayı kapsamında
+yalnız secure/wifi_adps_enable1→0 denendi; koşullu önkontrol ve readback0
+doğrulandı. Genel pil tasarrufu, WPA,MAC,SSID,diğer ağ geçişleri,uygulamalar,
+izinler,ADB güven süresi değiştirilmedi. Wi-Fi/telefon restartı yok.
+Geri dönüş kaydı `bulgular/hotspot-readonly-20261106/power-save-trial.json`;
+eski değer1. Bu Samsung'un güç tasarrufu tercihi için denemedir, nedeni
+kanıtlanmış arıza veya kesin çözüm iddiası değildir; pil tüketimi artabilir.
+Tek seferlik30dk READ_ONLY_NO_REPAIR gözlemi19:44:09 İstanbul başladı,
+beklenen bitiş20:14. PID763709; ilk örnek reachable/connected=true,
+setting0,RSSI-42,frekans2412. Yeni servis/watchdog değil, yalnız örnek kaydı;
+SSID/MAC/IP/SMS saklanmaz. `observer-status.json` ve `trial-samples.jsonl`
+canlı sonuç SSOT. Sonuç30sn örnekleriyle sınırlıdır; kısa aralık kopmaları
+kaçabilir.24sa/7gün kabulü ve otomatik toparlanma henüz tamamlanmadı.
+SMS/OTP geçmiş sorusunda görünür konuşmada ve dar kayıtlarda kurulmuş aktarım
+bulunmadı; kapsam bu tur SMS'e genişletilmedi. Kendi iki telefon arasında
+güvenli aktarım sonraki ayrı iş, hiçbir kod okunmadı/iletilmedi.
+
+##2026-11-06 — Hotspot plan uygulama onayı; erişim yine kesildi (Codex)
+
+Kullanıcı dayanıklılık planını uygulamayı onayladı; aynı kontrollü kapsamda
+devam yetkisi vardır, yeniden genel izin istenmez. İlk adım ayar/kuralı salt
+okunur doğrulamak, kanıtlı tek değişken denemesi; rastgele ayar değişimi yok.
+Yeni adb devices -l ve dört hedefli settings get çağrısı öncesinde SSH8022
+banner exchange timeout oldu. Cihaz kabuğuna erişim gerçekleşmedi; settings
+put/uygulama veya izin değişikliği yapılmadı. Doğrulanmamış anahtar değeri
+varsayılmadı. Sonraki adım tünel dönünce mevcut ADB cihazı/portu doğrulama,
+S24 akıllı ağ geçişi ve ilgili otomasyonun gerçek durumunu inceleme.
+Kullanıcı Mi10TPro SMS/OTP'nin S24'e gelmesi konusunu geçmişte konuşup
+konuşmadığımızı sordu; görünen konuşma ve dar proje kayıtlarında tamamlanmış
+SMS relay kurulumu bulunmadı. Bu ayrı ihtiyaç bağlantı düzeldikten sonra
+ele alınır; bu tur SMS okunmadı/iletilmedi, kod veya iletişim sırrı saklanmadı.
+
+##2026-11-06 — Hotspot ADB kopma kaydı + dayanıklılık tasarımı (Codex)
+
+Kullanıcı güncel port ekranı verdi; mevcut eşleşmeyle ADB connect başarılı,
+yeni pair/kod kullanılmadı. Yalnız Wi-Fi/network_stack/connectivity/thermal ve
+sınırlı log okundu; hiçbir telefon ayarı/uygulama değiştirilmedi.19:27–19:33
+arasında8tekil framework kopması reason1/UNSPECIFIED,locallyGenerated=true;
+yerel bildirim uygulama/driver tetikleyicisini kesinleştirmez.10association
+rejection/status-1 var; son saatte DHCP_FAILURE olayı yok.19:35 sağlıklı
+status/IP/RSSI-39/2412MHz. Güçlü sinyal ve yerel kod saldırı veya tek uygulama
+nedeni kanıtı değildir. Kod/SSID/BSSID/IP kalıcı rapora taşınmadı.
+Tek kaynak `bulgular/hotspot-readonly-20261106/RAPOR_VE_PLAN.md`: salt-okunur
+temel kayıt → yerel tetikleyici → onaylı tek değişken deneyi → mevcut tek
+toparlanma akışı →24sa/7gün kapıları. Toplama tamamlandı; kalıcı çözüm/24sa
+pilot/otomatik kurtarma uygulanmadı. Ham700/600. Sonraki iş gerekli onay ve
+aynı-zamanlı Mi/S24 kanıtı; sonsuz bağlantı veya saldırı yokluğu garantisi yok.
+
 ##2026-11-06 — Android read-only audit kurtarma ve rapor (Codex; PARTIAL)
 
 Sunucu kesintisi sonrası4Kasım kaydedilmiş35 başarılı komut artefaktı bulundu;
 ikinci/sorun örneği yok, son followup çağrısı başlamamış. Şimdi tel/SSH8022
-connection refused(host doğrulaması da aynı); otomatik onarım/ayar yok.
-Önceki kullanıcı ekranıyla mevcut eşleşmeye adb connect olmuş, pair kodu
-kullanılmamış. CihazSM-S928B/Android17/API37; kullanıcı 'normal' demişti.
-CPU normal örnekte çoğunlukla boşta; Input enabled/not frozen/queue empty,
-68G disk boş. Vending/GMS PID/CPU/PSS ayrı eşlendi; paketli meminfo çağrısı
-global döndüğünden heap dump iddiası yok. NotchTouch görünürtrusted overlay
-NOT_TOUCHABLE tam ekran ve314x104 etkileşim alanı; suçlu ilan edilmedi.
-Store güncelleme zamanı, çoklu profil/swap, hafifthermal ve gece Permission
-Controller crash'i5düşük/orta güvenli hipotez olarak raporlandı. Arıza anı
-yok; kök neden ve çözüm kanıtlanmadı. Gizlilikle arındırılmış rapor tek kaynak:
-`bulgular/android-readonly-20261104/RAPOR.md`. Ham dosyalar özel yerel700/600;
-uygulama/izin/veri/ayar/cihaz restartı değişmedi. Sonraki adım mevcut erişim
-yeniden gelince aynı komutlarla gerçek sorun+normal kısa örnek karşılaştırması.
-
-##2026-11-04 — Telefon kasma/Play Store read-only teşhis: ADB yok
-
-Kullanıcı kesin salt-okunur sınırla CPU/RAM/ANR/thermal/input/overlay audit
-istedi. SSH/Termux ulaşılabilir, doğrudan adb devices -l exit0 fakat liste boş.
-tel -a devices ilk denemesi boş cihaz seçimiyle help döndürdü; ADB client
-Termux server'ını otomatik açtı, Android cihaz/ayar/uygulama değiştirilmedi.
-Onarım/tel -c/settings put/connect/pair çalıştırılmadı. ADB shell olmadan
-ölçüm ve5neden sıralaması kanıtsız olduğundan yapılmadı. Ayrıntı ve devam
-koşulu `bulgular/android-readonly-20261104/README.md`; kullanıcı mevcut ADB
-erişimini hazır edince cihazlistesiyle tekrar doğrula. Ham bugreport alınmadı.
-
-## 2026-10-28 — Baloncuk/mesaj tasarımı0.3.3 ve kilit düzeltmesi (UI_PASS_AUTO_PENDING)
-
-Kullanıcı kaybolma, okunabilir mesajlar ve taş figürü istedi; ayrıca şeffaf/tıklanamaz
-baloncuğu ve hamleden sonra otomatik cevap gelmemesini bildirdi. Sahibim Codex.
-Üç neden doğrulandı: dış dokunmada kapanma, global work-mode ile panelin kaybı,
-15s sonra satranç cevabının normal akışla ezilmesi. Pinned satranç modu, stale-callback
-koruması, geri açılma niyeti/taslak, sarılan kartlar ve SAN taş/isim/hedef gösterimi
-eklendi.5 Android kaynak/test dosyası hash preflight sonrası kanoniğe uygulandı.
-0.3.2 alpha0.35/NOT_TOUCHABLE kararı kullanıcıyı kilitledi; canlı window fl18 ile
-doğrulandı.0.3.3 bu hatayı giderdi: giriş noktası opak/tıklanabilir; kullanıcı açtığı
-paneli work-mode kapatamaz. Backend yetki/bot kapıları değişmedi.
-
-Android15/15 test PASS,37s buildSUCCESS; önceki politika modelinde3 red kanıtı var.
-APK0.3.3/versionCode5 kuruldu; aktarım/kurulu hash/açılış/çökme kapısı PASS. SHA256
-e6119b0174e8d5a6572bb1b7fb47973e05f88f91faf2e3ebff18f931543a06ac. Gerçek cihazda
-mode AÇIKKEN panel açıldı, düğme isteği gitti ve20s opak/görünür kaldı. Motor
-mevcut ilerlemiş bot oyununa aday0/yasal zincir hatası döndürdü; analiz başarısı
-iddia edilmedi. Otomatik hamle takibi HENÜZ YOK. İşin bu kısmı tamamlandı sayılmadı.
-
-Kanıt/rollback SSOT `/root/oto/bulgular/bubble-ui-20261028/README.md`; yedekler
-ve0.3.2 hata artefaktı korundu, uninstall/veri silme/servis restartı/push yapılmadı.
-Etki aracı .kt desteklemedi; çağrılar elle ve test/derleme/cihazla doğrulandı.
-Sonraki dar iş ve mevcut kullanıcı yetkisi taze /root/oto oturumu için kaydedildi:
-`/root/oto/docs/DEVIR_20261028_SATRANC_OTOMATIK.md`. Bu tur yeni alt iş/ajan açılmadı.
+connection refused(host doğrulaması da aynı)

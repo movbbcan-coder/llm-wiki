@@ -140,3 +140,9 @@ sonra tek komut: `hafiza-token <yeni_token>` → jetonu güvenli dosyaya yazar v
 
 ## 2026-10-21 — P2P Graphify pilot benimsemesi
 Yerel kurulum/testler hazır; kullanıcı kararıyla yalnız Codex. Sağlayıcı429 sonrası Codex verim/başlangıç-kapanış/10 görev kapısı bekliyor; Claude aboneliği veya OAuth beklenmiyor. Tek durum ve devam kaynağı: `/root/p2p/mimari/GRAPHIFY_PILOT.md`; CHG-20261021-001.
+
+## 2026-11-06 — S24 / Mi 10T Pro telefon köprüsü
+
+- Durum: kullanıcı sözleşmesi ve kabul kapıları hazır; kurulum başlamadı.
+- Devam koşulu: mevcut hotspot deneyi sonuç kontrolü, ekran kapalı iki cihaz bağlantı kapısı; taze /root/oto oturumu.
+- SSOT: /root/oto/docs/DEVIR_TELEFON_KOPRUSU_20261106.md
