@@ -6,6 +6,35 @@ etiketler: [proje, oto]
 
 # ccoto — Ajan Telefon Kontrolü + Chat APK (yaşayan defter)
 
+##2026-11-08 — Mi yerel ADB hedefi tamamlandı: device/model doğrulandı
+
+Kullanıcı fotoğrafında MiTermux localhost connect başarılı ve adb devices -l
+satırı device/product:apollopro_global/model:M2007J3SG/device:apollo gösteriyor.
+Önceki yalnızpair aşaması aşıldı; Mi kendiTermux'undan ADBshell'e hazır.
+Bağlantıportu geçici; kalıcı varsayılmadı, kod/GUID/IP/port burada saklanmadı.
+android-tools35.0.2-7 kurulumu ve geçici aliasabd=adb kullanıcı ekranlarında
+görülmüştü. VPS→MiTermux SSH/tünel kurulmadı; S24kanalı üzerinden MiLAN
+erişimi çözülmüş sayılmaz. Hotspot kopma tetikleyicisi, ekran kapalı/dayanıklı
+erişim ve SMS/pil/arama köprüsü henüz doğrulanmadı; yeni ayar/alt iş yok.
+Mevcut hedef kapandı, devam taze /root/oto oturumunda:
+`docs/DEVIR_TELEFON_KOPRUSU_20261106.md`. Sonraki dar hedef MiTermux'tan
+kendi mobilinternetini kullanabilen güvenli VPS erişimini tasarlamak/kurmak;
+mevcut S24erişimini koru,özel anahtar/OTP/SMS loglama,sonra iki taraflı
+hotspot kaydı al. Yeni güvenlik/izin/kalıcı servis değişimi somut planla yapılır.
+
+##2026-11-08 — Mi kendi Termux'uyla yerel ADB eşlemesi başarılı (kullanıcı ekranı)
+
+Kullanıcı fotoğrafında MiTermux android-tools kurulumu ve localhost adb pair
+için 'Successfully paired' görüldü. Önceki tekrarlayan abd yazımını çözmek
+için geçici `alias abd=adb` kullanılmış; kalıcı kabuk dosyası değişikliği yok.
+Kod/GUID/IP/ephemeral port kayda alınmadı. Bu yalnız yerel eşleme başarısı:
+adb devices/get-state/shell kimliği henüz görülmedi; MiTermux'a VPSSSH erişimi
+kurulmadı, S24→Mi ağ yolu veya hotspot sürekliliği çözülmedi. Sonraki tek
+kontrol MiTermux `adb devices -l`; boşsa ana kablosuz-debug ekranındaki güncel
+bağlantıportuyla localhost connect. Eşlemeportu connect için kullanılmaz.
+Köprü/SMS/pil/arama kurulumu henüz başlamadı. Taze oturum SSOT
+`docs/DEVIR_TELEFON_KOPRUSU_20261106.md` güncellendi.
+
 ##2026-11-06 — Yenilenmiş Mi kodunda da protokol hatası; TCP erişimi doğrulanmadı
 
 Kullanıcı güncel Mi ana+eşleme ekranlarını verdi.12sn sınırlandırılmış,
@@ -102,30 +131,4 @@ taze oturum ilk görevi geri dönüş+kopma tetikleyicisini bulmak; SMS yeni iş
 ##2026-11-06 — Kullanıcının telefon köprüsü sözleşmesi kaydedildi; taze oturuma devir
 
 Kullanıcı sıra/kabul ölçütlerini verdi: MiSIM/hotspot yanında,S24 ana; önce
-pil/5dkheartbeat/15dkoffline/%20-%10 eşikleri; sonra cihazda şifreli SMS/OTP
-ve VPS yalnızrelay; sonra arayan/cevapsız,24sa10SMS/15sn/tekilleştirme ve3arama;
-ses daha sonra. Tam SSOT `docs/DEVIR_TELEFON_KOPRUSU_20261106.md`.
-Bu tur bağlam sınırı nedeniyle yeni kurulum/delegasyon başlatılmadı; iki cihaz
-MacroDroid yedeği ve MiAndroid/izin keşfi henüz yapılmadı. SMS okunmadı veya
-iletilmedi. Mevcut hotspot gözlemi19:45:45'te4/4 bağlı,henüz~2dk;30dk bitmedi,
-24sa kabulü yok. Yeni görevden önce20:14 sonrasıobserver sonuçları kontrol
-edilmeli. Taze oturum komutu `ajan-yeni codex /root/oto`; önce bu devir okunur.
-Kullanıcıya tekrar genel 'hangi telefon SIM/hotspot' sorusu sorulmaz.
-
-##2026-11-06 — Onaylı tek değişken denemesi uygulandı: Wi-Fi güç tasarrufu
-
-Kopma sonrası aynı ADB eşleşmesi döndü; yeni pair/kod gerekmedi. Sayısal
-Wi-Fi tercihlerinin salt okunur kontrolü sem_wifi_switch_to_better_wifi_enabled=0
-ve ekran açık varyantı0 gösterdi; bunlar değiştirilmedi. wifi_adps_enable
-global/system null, secure1 idi. Kullanıcının plan uygulama onayı kapsamında
-yalnız secure/wifi_adps_enable1→0 denendi; koşullu önkontrol ve readback0
-doğrulandı. Genel pil tasarrufu, WPA,MAC,SSID,diğer ağ geçişleri,uygulamalar,
-izinler,ADB güven süresi değiştirilmedi. Wi-Fi/telefon restartı yok.
-Geri dönüş kaydı `bulgular/hotspot-readonly-20261106/power-save-trial.json`;
-eski değer1. Bu Samsung'un güç tasarrufu tercihi için denemedir, nedeni
-kanıtlanmış arıza veya kesin çözüm iddiası değildir; pil tüketimi artabilir.
-Tek seferlik30dk READ_ONLY_NO_REPAIR gözlemi19:44:09 İstanbul başladı,
-beklenen bitiş20:14. PID763709; ilk örnek reachable/connected=true,
-setting0,RSSI-42,frekans2412. Yeni servis/watchdog değil, yalnız örnek kaydı;
-SSID/MAC/IP/SMS saklanmaz. `observer-status.json` ve `trial-samples.jsonl`
-canlı sonuç SSOT. Sonuç30sn örnekleriyle sınırlıdır; kı
+pil
